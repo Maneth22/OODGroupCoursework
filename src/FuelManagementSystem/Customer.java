@@ -1,5 +1,7 @@
 package FuelManagementSystem;
 
+import java.util.Scanner;
+
 public class Customer {
 
 	private String customerName;
@@ -21,6 +23,11 @@ public class Customer {
 	}
 
 	public void setCustomerName(String customerName) {
+		Scanner cusName = new Scanner(System.in);
+		System.out.println("Enter Customer Name :");
+
+		customerName = cusName.nextLine();
+		System.out.println("Customers name is "+customerName);
 
 		this.customerName = customerName;
 	}
@@ -32,6 +39,11 @@ public class Customer {
 
 
 	public void setVehicleType(String vehicleType) {
+		Scanner vehType = new Scanner(System.in);
+		System.out.println("Enter Vehicle Type :");
+
+		vehicleType = vehType.nextLine();
+		System.out.println("Vehicle Type is "+customerName);
 
 		this.vehicleType = vehicleType;
 	}
@@ -43,6 +55,15 @@ public class Customer {
 
 
 	public void setFuelInput(double fuelInput) {
+		Scanner fuelType = new Scanner(System.in);
+		System.out.println("Enter Vehicles Fuel Type :");
+
+
+		String temp = fuelType.nextLine();
+		fuelInput = Double.parseDouble(temp);
+		System.out.println("Vehicle Type is "+customerName);
+
+		this.vehicleType = vehicleType;
 
 		this.fuelInput = fuelInput;
 	}

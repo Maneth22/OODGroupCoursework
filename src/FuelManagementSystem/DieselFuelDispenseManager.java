@@ -12,7 +12,7 @@ public class DieselFuelDispenseManager implements FuelDispenseManager{
 		return this.listOfDispensers.add(new DieselDispenser(DispenserNumber,DispenserVehicleType));
 	}
 
-	public void setFuelAmount(int DfuelAmount) {
+	public void setFuelAmount(double DfuelAmount) {
 		if (this.fuelAmount<500){
 			System.out.println("Diesel Fuel limit less than 500L,\n Please Restock fuel to continue");
 		}else {
@@ -39,7 +39,7 @@ public class DieselFuelDispenseManager implements FuelDispenseManager{
 
 	}
 
-	private double getFuelAmount() {
+	public double getFuelAmount() {
 		return this.fuelAmount;
 	}
 

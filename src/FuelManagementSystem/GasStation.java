@@ -4,23 +4,28 @@ public class GasStation {
 
 	private double HighestFuelAmountInVehicle;
 
-	/**
-	 * 
-	 * @param Income
-	 */
+
+
 	public void CalculateIncome(double Income) {
-		// TODO - implement GasStation.CalculateIncome
-		throw new UnsupportedOperationException();
+
 	}
 
 	public void setHighestFuelAmountInVehicle() {
-		// TODO - implement GasStation.setHighestFuelAmountInVehicle
-		throw new UnsupportedOperationException();
+
 	}
 
 	public void printStatistics() {
-		// TODO - implement GasStation.printStatistics
-		throw new UnsupportedOperationException();
+
+	}
+
+	public static void main(String[] args) {
+
+
+		OctaneFuelDispenseManager oD= new OctaneFuelDispenseManager();
+		oD.restockFuel(20000);
+		System.out.println(oD.getFuelAmount());
+		oD.setFuelAmount(2400);
+		System.out.println(oD.getFuelAmount());
 	}
 
 }

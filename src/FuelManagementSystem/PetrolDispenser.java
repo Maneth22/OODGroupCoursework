@@ -1,7 +1,8 @@
 package FuelManagementSystem;
 
 public class PetrolDispenser {
-
+	private String VehicleType;
+	int DispenserNumber;
 	private int customerCount;
 	private String dispenserName;
 	private double Sales;
@@ -11,57 +12,45 @@ public class PetrolDispenser {
 		return this.customerCount;
 	}
 
-	/**
-	 * 
-	 * @param customerCount
-	 */
+
 	public void setCustomerCount(int customerCount) {
 		this.customerCount = customerCount;
 	}
 
 	public String getDispenserName() {
+
 		return this.dispenserName;
 	}
 
-	/**
-	 * 
-	 * @param dispenserName
-	 */
+
 	public void setDispenserName(String dispenserName) {
 		this.dispenserName = dispenserName;
 	}
 
 	public double getSales() {
-		// TODO - implement PetrolDispenser.getSales
-		throw new UnsupportedOperationException();
+		//calculate and return total dispenser sales
+		return Sales;
 	}
 
-	/**
-	 * 
-	 * @param Sales
-	 */
+
 	public void setSales(double Sales) {
-		// TODO - implement PetrolDispenser.setSales
-		throw new UnsupportedOperationException();
+		// update sales
 	}
 
-	public PetrolDispenser() {
-		// TODO - implement PetrolDispenser.PetrolDispenser
-		throw new UnsupportedOperationException();
+	public PetrolDispenser(int DispenserNumber,String DispenserVehicleType) {
+		this.VehicleType= DispenserVehicleType;
+		this.DispenserNumber=DispenserNumber;
+
+
 	}
 
 	public boolean getDispenseAvailable() {
-		// TODO - implement PetrolDispenser.getDispenseAvailable
-		throw new UnsupportedOperationException();
+		return DispenseAvailable;
 	}
 
-	/**
-	 * 
-	 * @param DispenseAvailable
-	 */
+
 	public void setDispenseAvailable(boolean DispenseAvailable) {
-		// TODO - implement PetrolDispenser.setDispenseAvailable
-		throw new UnsupportedOperationException();
+		// change availability of a dispenser
 	}
 
 }

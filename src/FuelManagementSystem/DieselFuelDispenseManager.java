@@ -1,34 +1,46 @@
-public class DieselFuelDispenseManager {
+package FuelManagementSystem;
+
+import java.util.ArrayList;
+
+public class DieselFuelDispenseManager implements FuelDispenseManager{
 
 	private double fuelAmount;
-	private int Capacity;
+	private final int Capacity=25000;
+	private ArrayList<DieselDispenser> listOfDispensers;
 
-	public void getFuelAmount() {
-		// TODO - implement DieselFuelDispenseManager.getFuelAmount
-		throw new UnsupportedOperationException();
+	public boolean createDispenser(int DispenserNumber, String DispenserVehicleType){
+		return this.listOfDispensers.add(new DieselDispenser(DispenserNumber,DispenserVehicleType));
 	}
 
-	/**
-	 * 
-	 * @param fuelAmount
-	 */
-	public void setFuelAmount(int fuelAmount) {
-		// TODO - implement DieselFuelDispenseManager.setFuelAmount
-		throw new UnsupportedOperationException();
+	public void setFuelAmount(int DfuelAmount) {
+		if (this.fuelAmount<500){
+			System.out.println("Diesel Fuel limit less than 500L,\n Please Restock fuel to continue");
+		}else {
+			this.fuelAmount-=DfuelAmount;
+		}
+
 	}
 
+	@Override
 	public double checkFuelAmount() {
-		// TODO - implement DieselFuelDispenseManager.checkFuelAmount
-		throw new UnsupportedOperationException();
+
+		return fuelAmount;
 	}
 
-	/**
-	 * 
-	 * @param fuelAmount
-	 */
+	@Override
 	public void restockFuel(double fuelAmount) {
-		// TODO - implement DieselFuelDispenseManager.restockFuel
-		throw new UnsupportedOperationException();
+		double NewFuelAmount;
+		NewFuelAmount= getFuelAmount()+fuelAmount;
+		if (NewFuelAmount <= Capacity){
+			this.fuelAmount = NewFuelAmount;
+		}else {
+			System.out.println("Capacity Outbound!");
+		}
+
+	}
+
+	private double getFuelAmount() {
+		return this.fuelAmount;
 	}
 
 }

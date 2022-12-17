@@ -1,45 +1,46 @@
 package FuelManagementSystem;
 
-public class OctaneFuelDispenseManager {
+import java.util.ArrayList;
+
+public class OctaneFuelDispenseManager implements FuelDispenseManager{
 
 	private double fuelAmount;
-	private int Capacity;
+	private final int Capacity=25000;
+	private ArrayList<PetrolDispenser> listOfDispensers = new ArrayList<>();
 
-	public void getFuelAmount() {
-		// TODO - implement OctaneFuelDispenseManager.getFuelAmount
-		throw new UnsupportedOperationException();
+	public double getFuelAmount() {
+		return fuelAmount;
+	}
+	public boolean createDispenser(int DispenserNumber, String DispenserVehicleType){
+		return this.listOfDispensers.add(new PetrolDispenser(DispenserNumber,DispenserVehicleType));
 	}
 
-	/**
-	 * 
-	 * @param fuelAmount
-	 */
-	public void setFuelAmount(int fuelAmount) {
-		// TODO - implement OctaneFuelDispenseManager.setFuelAmount
-		throw new UnsupportedOperationException();
+
+
+	public void setFuelAmount(double SfuelAmount) {
+		if (this.fuelAmount<500){
+			System.out.println("Octane Fuel limit less than 500L,\n Please Restock fuel to continue");
+		}else {
+			this.fuelAmount-=SfuelAmount;
+		}
 	}
 
+	@Override
 	public double checkFuelAmount() {
-		// TODO - implement OctaneFuelDispenseManager.checkFuelAmount
-		throw new UnsupportedOperationException();
+
+		return this.fuelAmount;
 	}
 
-	/**
-	 * 
-	 * @param attribute
-	 */
-	public void setAttribute(int attribute) {
-		// TODO - implement OctaneFuelDispenseManager.setAttribute
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param fuelAmount
-	 */
+	@Override
 	public void restockFuel(double fuelAmount) {
-		// TODO - implement OctaneFuelDispenseManager.restockFuel
-		throw new UnsupportedOperationException();
+		double NewFuelAmount;
+		NewFuelAmount= getFuelAmount()+fuelAmount;
+		if (NewFuelAmount <= Capacity){
+			this.fuelAmount = NewFuelAmount;
+		}else {
+			System.out.println("Capacity Outbound!");
+		}
+
 	}
 
 }

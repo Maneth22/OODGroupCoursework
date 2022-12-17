@@ -1,21 +1,16 @@
 package FuelManagementSystem;
-
+import java.util.random.RandomGenerator;
 public class Ticket {
 
 	private int TicketNo;
 
-	public void getTicketNo() {
-		// TODO - implement Ticket.getTicketNo
-		throw new UnsupportedOperationException();
+	public int getTicketNo() {
+		return TicketNo;
 	}
 
-	/**
-	 * 
-	 * @param TicketNo
-	 */
 	public void setTicketNo(int TicketNo) {
-		// TODO - implement Ticket.setTicketNo
-		throw new UnsupportedOperationException();
+		//Generate Random Ticket Numbers and save to file
+		this.TicketNo=TicketNo;
 	}
 
 }

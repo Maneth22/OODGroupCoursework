@@ -8,44 +8,42 @@ public class Customer {
 	private double fuelInput;
 	private boolean carFilled;
 
-	public Customer() {
-		// TODO - implement Customer.Customer
-		throw new UnsupportedOperationException();
+	public Customer(String fuelType, boolean carFilled, String vehicleType,String customerName) {
+		this.fuelType = fuelType;
+		this.carFilled = carFilled;
+		this.vehicleType= vehicleType;
+		this.customerName=customerName;
 	}
 
 	public String getCustomerName() {
+
 		return this.customerName;
 	}
 
-	/**
-	 * 
-	 * @param customerName
-	 */
 	public void setCustomerName(String customerName) {
+
 		this.customerName = customerName;
 	}
 
 	public String getVehicleType() {
+
 		return this.vehicleType;
 	}
 
-	/**
-	 * 
-	 * @param vehicleType
-	 */
+
 	public void setVehicleType(String vehicleType) {
+
 		this.vehicleType = vehicleType;
 	}
 
 	public double getFuelInput() {
+
 		return this.fuelInput;
 	}
 
-	/**
-	 * 
-	 * @param fuelInput
-	 */
+
 	public void setFuelInput(double fuelInput) {
+
 		this.fuelInput = fuelInput;
 	}
 

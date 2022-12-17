@@ -5,36 +5,27 @@ import java.util.ArrayList;
 public class DateTime {
 
 	private String Date;
-	private ArrayList<fuelAmount> DateDiesel;
+	private ArrayList<String> DateDiesel;
 	private ArrayList<String> DateOctane;
-	private String fuelAmount;
+	private String[] fuelAmount= new String[2];
 
-	public ArrayListList<fuelAmount> getDateDiesel() {
-		// TODO - implement DateTime.getDateDiesel
-		throw new UnsupportedOperationException();
+	public ArrayList<String> getDateDiesel() {
+		return DateDiesel;
 	}
 
-	/**
-	 * 
-	 * @param DateDiesel
-	 */
-	public void setDateDiesel(Lists<fuelAmount> DateDiesel) {
-		// TODO - implement DateTime.setDateDiesel
-		throw new UnsupportedOperationException();
+
+	public void setDateDiesel(ArrayList<String> DateDiesel) {
+
 	}
 
-	public Lists<fuelAmount> getDateOctane() {
-		// TODO - implement DateTime.getDateOctane
-		throw new UnsupportedOperationException();
+	public ArrayList<String> getDateOctane() {
+		return DateOctane;
 	}
 
-	/**
-	 * 
-	 * @param DateOctane
-	 */
-	public void setDateOctane(Lists<fuelAmount> DateOctane) {
-		// TODO - implement DateTime.setDateOctane
-		throw new UnsupportedOperationException();
-	}
+	public void setDateOctane(ArrayList<String> DateOctane) {
 
+	}
+	public void setFuelAmount(String date,String fuel){
+
+	}
 }

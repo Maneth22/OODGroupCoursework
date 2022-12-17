@@ -22,12 +22,12 @@ public class GasStation {
 	public static void main(String[] args) {
 
 		Customer customer= new Customer(null,false,null,null);
-
-		OctaneFuelDispenseManager oD= new OctaneFuelDispenseManager();
-		oD.restockFuel(20000);
-		System.out.println(oD.getFuelAmount());
-		oD.setFuelAmount(2400);
-		System.out.println(oD.getFuelAmount());
+		customer.setCustomerName();
+		//OctaneFuelDispenseManager oD= new OctaneFuelDispenseManager();
+		//oD.restockFuel(20000);
+		//System.out.println(oD.getFuelAmount());
+		//oD.setFuelAmount(2400);
+		//System.out.println(oD.getFuelAmount());
 	}
 
 }

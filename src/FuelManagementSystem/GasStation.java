@@ -18,8 +18,10 @@ public class GasStation {
 
 	}
 
+
 	public static void main(String[] args) {
 
+		Customer customer= new Customer(null,false,null,null);
 
 		OctaneFuelDispenseManager oD= new OctaneFuelDispenseManager();
 		oD.restockFuel(20000);

@@ -39,11 +39,10 @@ public class PetrolDispenser {
 
 	public void setSales(double fuelAmount) {
 		this.Sales=fuelAmount*price;
-		this.TotalDispenserSales+=Sales;
+		this.TotalDispenserSales+=Sales;		// update sales
 		System.out.println(TotalDispenserSales);
 
 
-		// update sales
 	}
 
 	public PetrolDispenser(int DispenserNumber,String DispenserVehicleType) {

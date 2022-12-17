@@ -4,36 +4,35 @@ public class Payment {
 
 	private double Cost;
 	private double fuelAmount;
-	private double Income;
-	private double OctanePrice;
-	private double DieselPrice;
+	private double petrolIncome;
+	private double dieselIncome;
+	private double TotalIncome;
+	private final double OctanePrice= 450;
+	private final double DieselPrice= 430;
+
+	public void setFuelAmount(double fuelAmount) {
+		this.fuelAmount = fuelAmount;
+	}
 
 	public double getCost() {
-		// TODO - implement Payment.getCost
-		throw new UnsupportedOperationException();
+		return Cost;
 	}
 
-	/**
-	 * 
-	 * @param Cost
-	 */
+
 	public void setCost(double Cost) {
-		// TODO - implement Payment.setCost
-		throw new UnsupportedOperationException();
+		this.Cost=Cost;
 	}
 
-	/**
-	 * 
-	 * @param Income
-	 */
-	public void CalculateIncome(double Income) {
-		// TODO - implement Payment.CalculateIncome
-		throw new UnsupportedOperationException();
+	public void CalculateIncome(double fuelAmount,String fuelType) {
+		//calculate total income
+		if (fuelType=="diesel"){
+			this.dieselIncome=DieselPrice*fuelAmount;
+			this.TotalIncome+=dieselIncome;
+		}
 	}
 
-	public double getIncome() {
-		// TODO - implement Payment.getIncome
-		throw new UnsupportedOperationException();
+	public double getTotalIncome() {
+		return TotalIncome;
 	}
 
 }

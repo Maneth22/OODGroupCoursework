@@ -2,11 +2,15 @@ package FuelManagementSystem;
 
 public class PetrolDispenser {
 	private String VehicleType;
+	private double TotalDispenserSales;
 	int DispenserNumber;
 	private int customerCount;
 	private String dispenserName;
 	private double Sales;
 	private boolean DispenseAvailable;
+	private double fuelAmount;
+	private final int price=450;
+	OctaneFuelDispenseManager OctaneRepo= new OctaneFuelDispenseManager();
 
 	public int getCustomerCount() {
 		return this.customerCount;
@@ -33,7 +37,12 @@ public class PetrolDispenser {
 	}
 
 
-	public void setSales(double Sales) {
+	public void setSales(double fuelAmount) {
+		this.Sales=fuelAmount*price;
+		this.TotalDispenserSales+=Sales;
+		System.out.println(TotalDispenserSales);
+
+
 		// update sales
 	}
 
@@ -50,7 +59,15 @@ public class PetrolDispenser {
 
 
 	public void setDispenseAvailable(boolean DispenseAvailable) {
-		// change availability of a dispenser
+		this.DispenseAvailable=DispenseAvailable;
+	}
+	public void fillVehicle(double fuelAmount){
+		setSales(0);
+		this.fuelAmount=fuelAmount;
+		OctaneRepo.setFuelAmount(fuelAmount);
+		System.out.println("Filling "+fuelAmount+"L");
+		System.out.println("Remaining Fuel in Octane Repository"+ OctaneRepo.getFuelAmount());
+		setSales(fuelAmount);
 	}
 
 }

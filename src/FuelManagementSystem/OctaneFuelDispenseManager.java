@@ -9,6 +9,7 @@ public class OctaneFuelDispenseManager implements FuelDispenseManager{
 	private ArrayList<PetrolDispenser> listOfDispensers = new ArrayList<>();
 
 	public double getFuelAmount() {
+
 		return fuelAmount;
 	}
 	public boolean createDispenser(int DispenserNumber, String DispenserVehicleType){
@@ -22,6 +23,7 @@ public class OctaneFuelDispenseManager implements FuelDispenseManager{
 			System.out.println("Octane Fuel limit less than 500L,\n Please Restock fuel to continue");
 		}else {
 			this.fuelAmount-=SfuelAmount;
+
 		}
 	}
 

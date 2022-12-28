@@ -14,7 +14,6 @@ public class Ticket {
 		Random random = new Random();
 		// Generate random integers in range 0 to 999 for ticket number
 		TicketNo = random.nextInt(1000);
-		this.TicketNo=TicketNo;
 		// Print ticket number
 		System.out.println("Ticket Number: "+"T-"+TicketNo);
 

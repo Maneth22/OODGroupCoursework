@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Queue {
 
 	private int Capacity;
+    private Customer TempCustomer;
 	private Customer customers[];
 	private boolean queueFull;
     private  int front,rear;
@@ -19,19 +20,44 @@ public class Queue {
         rear = 0;
         customers = new Customer[capacity];
     }
+    public void checkWaitingQueue(){
+        for (int i=0;i<=commonWait.size();i++){
+            if (!commonWait.chcklist() && !isQueueFull() && capacity!=rear){
+                TempCustomer=commonWait.parsing();
+                commonWait.remove();
+                TempCustomer.setTicketNo("T-"+String.valueOf(ticket.getTicketNo()));
+                customers[rear] = TempCustomer;
+                rear++;
+                System.out.println("Added from common waiting queue "+customers[rear-1].getCustomerName()+" "+TempCustomer.getTicketNo());
+            }
+            else {
+                System.out.println("line is full or no cmmn wait");
+            }
+        }
+
+    }
 
 	public void Enqueue(Customer Element) {
-        if (capacity ==rear){
-            System.out.println("Line is full!");
-            commonWait.wait(Element );
-            return;
+        //checkWaitingQueue();
+            if (capacity ==rear){
+                System.out.println("Line is full!");
+                commonWait.wait(Element );
+                return;
+            }
+            else{
+                if (commonWait.chcklist()){
+
+                    Element.setTicketNo("T-"+String.valueOf(ticket.getTicketNo()));
+                    customers[rear] = Element;
+                    rear++;
+                    System.out.println(customers[rear-1].getCustomerName()+Element.getTicketNo());
+
+                }else {
+                    checkWaitingQueue();
+                }
         }
-        else{
-            Element.setTicketNo("T-"+String.valueOf(ticket.getTicketNo()));
-            customers[rear] = Element;
-            rear++;
-            System.out.println(customers[rear-1].getCustomerName()+" "+Element.getTicketNo());
-        }
+
+
         return;
 	}
 
@@ -41,24 +67,28 @@ public class Queue {
             System.out.println("Line is empty");
             return;
         } else {
-            for (int i = 0; i < rear - 1; i++) {
+            for (int i = front; i < rear-1 ; i++) {
                 customers[i] = customers[i + 1];
             }
-            if (rear < capacity) {
-                customers[rear] = null;
+            if (rear-1 < capacity) {
+                //customers[rear] = null;
                 rear--;
             }
-            return;
+            System.out.println(customers[front].getCustomerName());
+            if (!commonWait.chcklist()){
+                checkWaitingQueue();
+            }
+
         }
+
+
+
 	}
 
 
-
-	public static boolean getQueueFull(Object Queue) {
-		//if the queue is full return true
-
-		return true;
-	}
+    public boolean isQueueFull(){
+        return capacity==rear;
+    }
 
 
 

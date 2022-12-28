@@ -21,17 +21,18 @@ public class GasStation {
 
 	public static void main(String[] args) {
 
-		Customer customer1= new Customer("petrol", 9,false,"car","SANA",null);
-		Customer customer2= new Customer("petrol", 9,false,"car","SANA",null);
-		Customer customer3= new Customer("petrol", 9,false,"car","SANA",null);
-		Customer customer4= new Customer("petrol", 9,false,"car","SANA",null);
-		Customer customer5= new Customer("petrol", 9,false,"car","SANA",null);
-		Customer customer6= new Customer("petrol", 9,false,"car","SANA",null);
-		Customer customer7= new Customer("petrol", 9,false,"car","SANA",null);
-		Customer customer8= new Customer("petrol", 9,false,"car","SANA",null);
-		Customer customer9= new Customer("petrol", 9,false,"car","SANA",null);
-		Customer customer10= new Customer("petrol", 9,false,"car","SANA",null);
-		Customer customer11= new Customer("petrol", 9,false,"car","SANA",null);
+		Customer customer1= new Customer("petrol", 9,false,"car","fk",null);
+		Customer customer2= new Customer("petrol", 9,false,"car","SANA1",null);
+		Customer customer3= new Customer("petrol", 9,false,"car","SANA2",null);
+		Customer customer4= new Customer("petrol", 9,false,"car","SANA3",null);
+		Customer customer5= new Customer("petrol", 9,false,"car","SANA4",null);
+		Customer customer6= new Customer("petrol", 9,false,"car","SANA5",null);
+		Customer customer7= new Customer("petrol", 9,false,"car","SANA6",null);
+		Customer customer8= new Customer("petrol", 9,false,"car","SANA7",null);
+		Customer customer9= new Customer("petrol", 9,false,"car","SANA8",null);
+		Customer customer10= new Customer("petrol", 9,false,"car","SANA9",null);
+		Customer customer11= new Customer("petrol", 9,false,"car","SANA11",null);
+		Customer customer12= new Customer("petrol", 9,false,"car","SANA12",null);
 
 		/*OctaneFuelDispenseManager oD= new OctaneFuelDispenseManager();
 		PetrolDispenser PD1= new PetrolDispenser(1,"Car");
@@ -53,6 +54,8 @@ public class GasStation {
 		carQ.Enqueue(customer9);
 		carQ.Enqueue(customer10);
 		carQ.Enqueue(customer11);
+		carQ.Dequeue();
+		carQ.Enqueue(customer12);
 
 
 	}

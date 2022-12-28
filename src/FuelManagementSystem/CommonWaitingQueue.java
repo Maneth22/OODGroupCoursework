@@ -21,11 +21,12 @@ public class CommonWaitingQueue {
 	public int size(){
 		return customers.size();
 	}
+	public void remove(){
+		customers.remove(0);
+	}
 
 	public Customer parsing() {
 		System.out.println(customers.get(0).getCustomerName()+" Removing from common waiting");
-		this.customers.remove(0);
-
 		return customers.get(0);
 
 	}

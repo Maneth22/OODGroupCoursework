@@ -9,22 +9,21 @@ public class Queue {
 	private Customer customers[];
 	private boolean queueFull;
     private  int front,rear;
-    private int capacity=10;
+    private final int capacity=10;
 
-    CommonWaitingQueue carWait= new CommonWaitingQueue();
+    CommonWaitingQueue commonWait= new CommonWaitingQueue();
 	Ticket ticket=new Ticket();
 
     Queue(){
         front = 0;
         rear = 0;
-        capacity = 10;
         customers = new Customer[capacity];
     }
+
 	public void Enqueue(Customer Element) {
-		//Has to change
         if (capacity ==rear){
             System.out.println("Line is full!");
-
+            commonWait.wait(Element );
             return;
         }
         else{

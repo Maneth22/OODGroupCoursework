@@ -2,23 +2,28 @@ package FuelManagementSystem;
 
 import java.util.ArrayList;
 
-public class CommonWaitingQueue extends Queue {
+public class CommonWaitingQueue {
 
-	private Customer customers[]=new Customer[4];
+	private ArrayList<Customer> customers=new ArrayList<Customer>();
+
+	CommonWaitingQueue() {
+		super();
+	}
 
 
-	public void Enqueue(String Element) {
+	public void wait(Customer Element) {
+		customers.add(Element);
+		System.out.println(Element.getCustomerName()+" added to common  waiting");
+	}
+
+	public Customer parsing() {
+		System.out.println(customers.get(0).getCustomerName()+" Removing from common waiting");
+		customers.remove(0);
+
+		return customers.get(0);
 
 	}
 
-	public void Dequeue() {
 
-	}
-
-	public CommonWaitingQueue(Customer customers[]) {
-		super(customers);
-
-		this.customers=customers;
-	}
 
 }

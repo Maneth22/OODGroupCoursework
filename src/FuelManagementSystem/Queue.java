@@ -6,29 +6,31 @@ import java.util.ArrayList;
 public class Queue {
 
 	private int Capacity;
-	private Customer customers[]=new Customer[10];//Has to change
+	private Customer customers[];
 	private boolean queueFull;
     private  int front,rear;
-    private int capacity=10;
+    private final int capacity=10;
 
-
+    CommonWaitingQueue commonWait= new CommonWaitingQueue();
 	Ticket ticket=new Ticket();
 
-    Queue(int size){
+    Queue(){
         front = 0;
         rear = 0;
-        capacity = size;
         customers = new Customer[capacity];
     }
+
 	public void Enqueue(Customer Element) {
-		//Has to change
         if (capacity ==rear){
             System.out.println("Line is full!");
+            commonWait.wait(Element );
             return;
         }
         else{
+            Element.setTicketNo("T-"+String.valueOf(ticket.getTicketNo()));
             customers[rear] = Element;
             rear++;
+            System.out.println(customers[rear-1].getCustomerName()+" "+Element.getTicketNo());
         }
         return;
 	}

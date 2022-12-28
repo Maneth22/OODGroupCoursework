@@ -19,6 +19,18 @@ public class Queue {
         rear = 0;
         customers = new Customer[capacity];
     }
+    public void checkWaitingQueue(){
+        Customer TempCustomer;
+        for (int i=0;i<=commonWait.size();i++){
+            if (commonWait.chcklist() && !isQueueFull()){
+                TempCustomer=commonWait.parsing();
+                TempCustomer.setTicketNo("T-"+String.valueOf(ticket.getTicketNo()));
+                customers[rear] = TempCustomer;
+                rear++;
+                System.out.println(customers[rear-1].getCustomerName()+" "+TempCustomer.getTicketNo());
+            }
+        }
+    }
 
 	public void Enqueue(Customer Element) {
         if (capacity ==rear){
@@ -54,11 +66,9 @@ public class Queue {
 
 
 
-	public static boolean getQueueFull(Object Queue) {
-		//if the queue is full return true
-
-		return true;
-	}
+	public boolean isQueueFull(){
+        return capacity==rear;
+    }
 
 
 

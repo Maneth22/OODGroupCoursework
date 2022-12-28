@@ -12,13 +12,19 @@ public class CommonWaitingQueue {
 
 
 	public void wait(Customer Element) {
-		customers.add(Element);
+		this.customers.add(Element);
 		System.out.println(Element.getCustomerName()+" added to common  waiting");
+	}
+	public boolean chcklist(){
+		return customers.isEmpty();
+	}
+	public int size(){
+		return customers.size();
 	}
 
 	public Customer parsing() {
 		System.out.println(customers.get(0).getCustomerName()+" Removing from common waiting");
-		customers.remove(0);
+		this.customers.remove(0);
 
 		return customers.get(0);
 

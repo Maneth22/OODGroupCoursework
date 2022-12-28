@@ -4,21 +4,21 @@ import java.util.ArrayList;
 
 public class CommonWaitingQueue extends Queue {
 
-	private Customer customers[]=new Customer[4];
+	private ArrayList<Customer> customers=new ArrayList<Customer>();
+
+	CommonWaitingQueue() {
+		super();
+	}
 
 
-	public void Enqueue(String Element) {
-
+	public void wait(Customer Element) {
+		customers.add(Element);
 	}
 
 	public void Dequeue() {
 
 	}
 
-	public CommonWaitingQueue(Customer customers[]) {
-		super(customers);
 
-		this.customers=customers;
-	}
 
 }

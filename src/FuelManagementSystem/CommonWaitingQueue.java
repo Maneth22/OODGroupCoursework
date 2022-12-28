@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class CommonWaitingQueue extends Queue {
 
-	private ArrayList<Customer> customer;
+	private Customer customers[]=new Customer[4];
 
 
 	public void Enqueue(String Element) {
@@ -15,11 +15,10 @@ public class CommonWaitingQueue extends Queue {
 
 	}
 
-	public CommonWaitingQueue(ArrayList customer) {
-		super(customer);
+	public CommonWaitingQueue(Customer customers[]) {
+		super(customers);
 
-		this.customer=customer;
+		this.customers=customers;
 	}
 
 }
-//diren

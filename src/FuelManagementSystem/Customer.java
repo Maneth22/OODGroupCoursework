@@ -22,7 +22,7 @@ public class Customer {
 		return this.customerName;
 	}
 
-	public void setCustomerName(String customerName) {
+	public void setCustomerName() {
 		Scanner cusName = new Scanner(System.in);
 		System.out.println("Enter Customer Name :");
 
@@ -38,12 +38,12 @@ public class Customer {
 	}
 
 
-	public void setVehicleType(String vehicleType) {
+	public void setVehicleType() {
 		Scanner vehType = new Scanner(System.in);
 		System.out.println("Enter Vehicle Type :");
 
 		vehicleType = vehType.nextLine();
-		System.out.println("Vehicle Type is "+customerName);
+		System.out.println("Vehicle Type is "+vehicleType);
 
 		this.vehicleType = vehicleType;
 	}
@@ -54,18 +54,11 @@ public class Customer {
 	}
 
 
-	public void setFuelInput(double fuelInput) {
-		Scanner fuelType = new Scanner(System.in);
-		System.out.println("Enter Vehicles Fuel Type :");
-
-
-		String temp = fuelType.nextLine();
-		fuelInput = Double.parseDouble(temp);
-		System.out.println("Vehicle Type is "+customerName);
-
-		this.vehicleType = vehicleType;
-
+	public void setFuelInput() {
 		this.fuelInput = fuelInput;
+		System.out.println("Fuel Type = "+fuelType);
+
+
 	}
 
 }

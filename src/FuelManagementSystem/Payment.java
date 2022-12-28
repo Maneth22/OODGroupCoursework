@@ -7,6 +7,7 @@ public class Payment {
 	private double petrolIncome;
 	private double dieselIncome;
 	private double TotalIncome;
+	private Customer customer;
 	private final double OctanePrice= 450;
 	private final double DieselPrice= 430;
 
@@ -19,8 +20,13 @@ public class Payment {
 	}
 
 
-	public void setCost(double Cost) {
-		this.Cost=Cost;
+	public double setCost(Customer customer, double temp) {
+		if (customer.getFuelType()=="Diesel") {
+			temp = DieselPrice * customer.getFuelInput();
+		} else if (customer.getFuelType()=="Petrol") {
+			temp =OctanePrice * customer.getFuelInput();
+		}
+		return temp;
 	}
 
 	public void CalculateIncome(double fuelAmount,String fuelType) {

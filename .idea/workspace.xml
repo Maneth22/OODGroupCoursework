@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6a63166-cf58-4016-88d2-8d254818dfcd" name="Changes" comment="Commiting unknown">
+    <list default="true" id="d6a63166-cf58-4016-88d2-8d254818dfcd" name="Changes" comment="Implementing Customer details">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/Payment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +24,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

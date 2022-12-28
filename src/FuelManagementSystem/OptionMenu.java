@@ -46,11 +46,8 @@ public class OptionMenu{
                     }
                 }
             } catch (Exception e) {
-                System.out.println("Error Occurred"+e);
+                System.out.println("Error");
             }
-
-
-        optionSelect();
 
     }
 

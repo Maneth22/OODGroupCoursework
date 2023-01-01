@@ -12,8 +12,8 @@ public class OctaneFuelDispenseManager implements FuelDispenseManager{
 
 		return fuelAmount;
 	}
-	public boolean createDispenser(int DispenserNumber, String DispenserVehicleType){
-		return this.listOfDispensers.add(new PetrolDispenser(DispenserNumber,DispenserVehicleType));
+	public boolean createdDispensers(String DispenserVehicleType){
+		return this.listOfDispensers.add(new PetrolDispenser(DispenserVehicleType));
 	}
 
 

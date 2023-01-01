@@ -2,6 +2,7 @@ package FuelManagementSystem;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.Objects;
 
 public class DBConnector {
     public void AddCusToDB(Customer customer) throws ClassNotFoundException, SQLException, IOException {
@@ -69,16 +70,51 @@ public class DBConnector {
         Statement stmt = con.createStatement();
 
         String dispenser_name= Vtype;
-        //if (dispenser_name==)
+        String fType="petrol";
+        if (Objects.equals(dispenser_name, "car") || Objects.equals(dispenser_name, "van")){
+            stmt.executeUpdate("INSERT INTO dispenser"+"(dispenser_Type,dispenser_Name,Sales) "
+                    +"VALUES ('"+fType+"','"+dispenser_name+"',"+null+")");
+
+        } else if (Objects.equals(dispenser_name, "motorbike")) {
+            stmt.executeUpdate("INSERT INTO dispenser"+"(dispenser_Type,dispenser_Name,Sales) "
+                    +"VALUES ('"+fType+"','"+dispenser_name+"',"+null+")");
+
+        } else if (Objects.equals(dispenser_name, "threewheel")) {
+            stmt.executeUpdate("INSERT INTO dispenser"+"(dispenser_Type,dispenser_Name,Sales) "
+                    +"VALUES ('"+fType+"','"+dispenser_name+"',"+null+")");
+        }else {
+            stmt.executeUpdate("INSERT INTO dispenser"+"(dispenser_Type,dispenser_Name,Sales) "
+                    +"VALUES ('"+fType+"','"+dispenser_name+"',"+null+")");
+
+        }
 
 
 
+    }
 
-        //stmt.executeUpdate("INSERT INTO customer"+"(customer_Name,vehicle_Type,fuel_Type,fuel_Amount,ticket_No,payment) "
-               // +"VALUES ('"+Name_+"','"+vehicle+"','"+fueltype+"',"+fuelAmount+","+null+","+null+")");
+    public void AddDieselDispenserToDB(DieselDispenser dispenser,String Vtype) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+        Statement stmt = con.createStatement();
 
+        String dispenser_name = Vtype;
+        String fType = "diesel";
+        if (Objects.equals(dispenser_name, "car") || Objects.equals(dispenser_name, "van")) {
+            stmt.executeUpdate("INSERT INTO dispenser" + "(dispenser_Type,dispenser_Name,Sales) "
+                    + "VALUES ('" + fType + "','" + dispenser_name + "'," + null + ")");
 
+        } else if (Objects.equals(dispenser_name, "publictransport")) {
+            stmt.executeUpdate("INSERT INTO dispenser" + "(dispenser_Type,dispenser_Name,Sales) "
+                    + "VALUES ('" + fType + "','" + dispenser_name + "'," + null + ")");
 
+        } else if (Objects.equals(dispenser_name, "threewheel")) {
+            stmt.executeUpdate("INSERT INTO dispenser" + "(dispenser_Type,dispenser_Name,Sales) "
+                    + "VALUES ('" + fType + "','" + dispenser_name + "'," + null + ")");
+        } else {
+            stmt.executeUpdate("INSERT INTO dispenser" + "(dispenser_Type,dispenser_Name,Sales) "
+                    + "VALUES ('" + fType + "','" + dispenser_name + "'," + null + ")");
+
+        }
     }
 
 }

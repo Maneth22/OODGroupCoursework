@@ -8,8 +8,8 @@ public class DieselFuelDispenseManager implements FuelDispenseManager{
 	private final int Capacity=25000;
 	private ArrayList<DieselDispenser> listOfDispensers;
 
-	public boolean createDispenser(int DispenserNumber, String DispenserVehicleType){
-		return this.listOfDispensers.add(new DieselDispenser(DispenserNumber,DispenserVehicleType));
+	public boolean createDispenser(String DispenserVehicleType){
+		return this.listOfDispensers.add(new DieselDispenser(DispenserVehicleType));
 	}
 
 	public void setFuelAmount(double DfuelAmount) {

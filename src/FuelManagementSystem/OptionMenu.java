@@ -1,4 +1,5 @@
 package FuelManagementSystem;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import static java.lang.System.*;
@@ -162,34 +163,54 @@ public class OptionMenu {
                         out.println("ENTER FUEL TYPE FOR DISPENSER [Petrol / Diesel] ");
                         String fuelType = sc.next().toLowerCase();
 
+                        out.println(fuelType);
 
-
-                        if (fuelType=="petrol"){
-                            out.print("ENTER DISPENSER TYPE [CAR/VAN, MORTORBIKE, THREEWHEEL, OTHER] : ");
+                        if (fuelType.equals("petrol")){
+                            System.out.print("ENTER DISPENSER TYPE [CAR/VAN, MORTORBIKE, THREEWHEEL, OTHER] : ");
                             String Type = sc.next().toLowerCase();
 
-                            if (Type=="car" || Type=="van"){
 
-                            } else if (Type=="mortorbike") {
+                            if (Type.equals("car") || Type.equals("van")){
+                                PetrolDispenser PD= new PetrolDispenser(Type);
+                                dbConnector.AddPetrolDispenserToDB(PD,Type);
 
-                            } else if (Type=="threewheel") {
+                            } else if (Type.equals("motorbike")) {
+                                PetrolDispenser PD= new PetrolDispenser(Type);
+                                dbConnector.AddPetrolDispenserToDB(PD,Type);
+
+                            } else if (Type.equals("threewheel")) {
+                                PetrolDispenser PD= new PetrolDispenser(Type);
+                                dbConnector.AddPetrolDispenserToDB(PD,Type);
 
                             }else {
+                                PetrolDispenser PD= new PetrolDispenser(Type);
+                                dbConnector.AddPetrolDispenserToDB(PD,Type);
 
                             }
 
 
-                        } else if (fuelType=="diesel") {
+                        } else if (fuelType.equals("diesel")) {
                             out.print("ENTER DISPENSER TYPE [CAR/VAN, PUBLIC TRANSPORT, OTHER] : ");
                             String Type = sc.next().toLowerCase();
 
-                            if (Type=="car" || Type=="van"){
 
-                            } else if (Type=="publictransport") {
+                            if (Type.equals("car") || Type.equals("van")){
+                                DieselDispenser DD= new DieselDispenser(Type);
+                                dbConnector.AddDieselDispenserToDB(DD,Type);
+
+                            } else if (Type.equals("publictransport")) {
+                                DieselDispenser DD= new DieselDispenser(Type);
+                                dbConnector.AddDieselDispenserToDB(DD,Type);
 
                             }else {
+                                DieselDispenser DD= new DieselDispenser(Type);
+                                dbConnector.AddDieselDispenserToDB(DD,Type);
 
                             }
+                        }
+                        else{
+                            out.println("please Enter Again");
+                            manageDispensers();
                         }
 
                     }
@@ -200,6 +221,10 @@ public class OptionMenu {
                 }
             } catch (NumberFormatException e) {
                 out.println("Error");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
         }
 

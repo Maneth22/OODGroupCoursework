@@ -45,9 +45,9 @@ public class PetrolDispenser {
 
 	}
 
-	public PetrolDispenser(int DispenserNumber,String DispenserVehicleType) {
+	public PetrolDispenser(String DispenserVehicleType) {
 		this.VehicleType= DispenserVehicleType;
-		this.DispenserNumber=DispenserNumber;
+
 
 
 	}

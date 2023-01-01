@@ -1,5 +1,7 @@
 package FuelManagementSystem;
 
+import java.io.IOException;
+
 public class DieselDispenser {
 
 	private int customerCount;
@@ -55,13 +57,14 @@ public class DieselDispenser {
 	public void setDispenserAvailable(boolean DispenserAvailable) {
 		// change availability of a dispenser
 	}
-	public void fillVehicle(double fuelAmount){
+	public void fillVehicle(double fuelAmount) throws IOException {
 		setSales(0);
 		this.fuelAmount=fuelAmount;
 		DieselRepo.setFuelAmount(fuelAmount);
 		System.out.println("Filling "+fuelAmount+"L");
 		System.out.println("Remaining Fuel in Diesel Repository"+ DieselRepo.getFuelAmount());
 		setSales(fuelAmount);
+
 	}
 
 }

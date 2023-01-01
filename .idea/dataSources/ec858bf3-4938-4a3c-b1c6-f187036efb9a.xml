@@ -1250,43 +1250,50 @@ user\\_%|schema||user|%localhost|UPDATE|G</Grants>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <column id="337" parent="336" name="customer_No">
-      <DasType>int(11)|0s</DasType>
+      <DasType>INT(10)|4s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="338" parent="336" name="customer_Name">
-      <DasType>varchar(25)|0s</DasType>
+      <DasType>VARCHAR(25)|12s</DasType>
+      <DefaultExpression>&apos;NULL&apos;</DefaultExpression>
       <Position>2</Position>
     </column>
     <column id="339" parent="336" name="vehicle_Type">
-      <DasType>varchar(20)|0s</DasType>
+      <DasType>VARCHAR(20)|12s</DasType>
+      <DefaultExpression>&apos;NULL&apos;</DefaultExpression>
       <Position>3</Position>
     </column>
     <column id="340" parent="336" name="fuel_Type">
-      <DasType>varchar(20)|0s</DasType>
+      <DasType>VARCHAR(20)|12s</DasType>
+      <DefaultExpression>&apos;NULL&apos;</DefaultExpression>
       <Position>4</Position>
     </column>
     <column id="341" parent="336" name="fuel_Amount">
-      <DasType>int(11)|0s</DasType>
+      <DasType>INT(10)|4s</DasType>
+      <DefaultExpression>NULL</DefaultExpression>
       <Position>5</Position>
     </column>
     <column id="342" parent="336" name="ticket_No">
-      <DasType>varchar(10)|0s</DasType>
+      <DasType>VARCHAR(10)|12s</DasType>
+      <DefaultExpression>&apos;NULL&apos;</DefaultExpression>
       <Position>6</Position>
     </column>
     <column id="343" parent="336" name="payment">
-      <DasType>double|0s</DasType>
+      <DasType>DOUBLE(22)|8s</DasType>
+      <DefaultExpression>NULL</DefaultExpression>
       <Position>7</Position>
     </column>
     <index id="344" parent="336" name="PRIMARY">
       <ColNames>customer_No</ColNames>
+      <NameSurrogate>1</NameSurrogate>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
     <key id="345" parent="336" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+      <UnderlyingIndexColNames>customer_No</UnderlyingIndexColNames>
     </key>
   </database-model>
 </dataSource>

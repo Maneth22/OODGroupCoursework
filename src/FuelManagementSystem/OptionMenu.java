@@ -77,10 +77,10 @@ public class OptionMenu {
                         double fuelInput = sc.nextDouble();
 
                         out.print("ENTER VEHICLE TYPE: ");
-                        String vehicleType = sc.next();
+                        String vehicleType = sc.next().toLowerCase();
 
                         out.print("ENTER CUSTOMER NAME: ");
-                        String customerName = sc.next();
+                        String customerName = sc.next().toLowerCase();
 
                         Customer customer = new Customer(fuelType, fuelInput, false, vehicleType, customerName, null);
 
@@ -156,7 +156,43 @@ public class OptionMenu {
                 Choice = Integer.parseInt(sc.nextLine());
                 userIntReceived = true;
                 switch (Choice) {
-                    case 1 -> out.println("\nADD NEW DISPENSER\n");
+                    case 1 ->{ out.println("\n*******************\n");
+
+
+                        out.println("ENTER FUEL TYPE FOR DISPENSER [Petrol / Diesel] ");
+                        String fuelType = sc.next().toLowerCase();
+
+
+
+                        if (fuelType=="petrol"){
+                            out.print("ENTER DISPENSER TYPE [CAR/VAN, MORTORBIKE, THREEWHEEL, OTHER] : ");
+                            String Type = sc.next().toLowerCase();
+
+                            if (Type=="car" || Type=="van"){
+
+                            } else if (Type=="mortorbike") {
+
+                            } else if (Type=="threewheel") {
+
+                            }else {
+
+                            }
+
+
+                        } else if (fuelType=="diesel") {
+                            out.print("ENTER DISPENSER TYPE [CAR/VAN, PUBLIC TRANSPORT, OTHER] : ");
+                            String Type = sc.next().toLowerCase();
+
+                            if (Type=="car" || Type=="van"){
+
+                            } else if (Type=="publictransport") {
+
+                            }else {
+
+                            }
+                        }
+
+                    }
                     case 2 -> out.println("DISPLAY FUEL LEVEL IN REPOSITORY");
                     case 3 -> out.println("RESTOCK FUEL");
                     case 0 -> MainMenuDisplay();

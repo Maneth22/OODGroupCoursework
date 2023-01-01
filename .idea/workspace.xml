@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
     <list default="true" id="d6a63166-cf58-4016-88d2-8d254818dfcd" name="Changes" comment=" database success">
-=======
-    <list default="true" id="d6a63166-cf58-4016-88d2-8d254818dfcd" name="Changes" comment="dispenser and queue interface">
-      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-j-8.0.31.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/protobuf-java-3.19.4.jar" afterDir="false" />
->>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/DBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/DBConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/OptionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/OptionMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/cal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/cal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resource/cuscount.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resource/cuscount.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +136,6 @@
       <workItem from="1672266033302" duration="4487000" />
       <workItem from="1672458104867" duration="5907000" />
       <workItem from="1672530637939" duration="14188000" />
-      <workItem from="1672605811631" duration="498000" />
     </task>
     <task id="LOCAL-00001" summary="Commiting Cost innitialisation">
       <created>1671253471633</created>
@@ -203,14 +200,7 @@
       <option name="project" value="LOCAL" />
       <updated>1672551931916</updated>
     </task>
-    <task id="LOCAL-00010" summary="dispenser and queue interface">
-      <created>1672569469227</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1672569469227</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,8 +233,7 @@
     <MESSAGE value="new database" />
     <MESSAGE value=" database alt" />
     <MESSAGE value=" database success" />
-    <MESSAGE value="dispenser and queue interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="dispenser and queue interface" />
+    <option name="LAST_COMMIT_MESSAGE" value=" database success" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

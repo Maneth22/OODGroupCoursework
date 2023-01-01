@@ -90,7 +90,10 @@ public class OptionMenu {
 
 
                     }
-                    case 2 -> System.out.println("DISPLAY CUSTOMER DETAILS");
+                    case 2 -> {
+                        System.out.println("--------CUSTOMER DETAILS----------\n\n\n");
+
+                    }
                     case 0 -> MainMenuDisplay();
 
                     default -> manageCustomers();

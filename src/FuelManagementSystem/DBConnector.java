@@ -27,5 +27,12 @@ public class DBConnector {
 
 
     }
+    public void ViewCusFromDB() throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+        Statement stmt = con.createStatement();
+
+
+    }
 
 }

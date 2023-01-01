@@ -2,9 +2,27 @@
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-223.8214.52">
     <data-source name="fuelmanager@localhost" uuid="ec858bf3-4938-4a3c-b1c6-f187036efb9a">
+<<<<<<< Updated upstream
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MARIADB" exact-version="0" />
       <secret-storage>forget</secret-storage>
       <schema-mapping />
+=======
+      <database-info product="MariaDB" version="10.4.27-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="10.4.27" exact-driver-version="3.0">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>user</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema">
+            <name qname="@" />
+            <name qname="fuelmanager" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+>>>>>>> Stashed changes
     </data-source>
   </component>
 </project>

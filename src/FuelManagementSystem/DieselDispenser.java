@@ -44,8 +44,7 @@ public class DieselDispenser {
 	public void getCustomerCount() {
 	}
 
-	public DieselDispenser(int DispenserNumber,String VehicleType) {
-		this.DispenserNumber= DispenserNumber;
+	public DieselDispenser(String VehicleType) {
 		this.VehicleType= VehicleType;
 	}
 

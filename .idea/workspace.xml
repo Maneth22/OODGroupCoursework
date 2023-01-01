@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6a63166-cf58-4016-88d2-8d254818dfcd" name="Changes" comment=" database success">
+    <list default="true" id="d6a63166-cf58-4016-88d2-8d254818dfcd" name="Changes" comment="dispenser db input">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/DBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/DBConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/DieselDispenser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/DieselDispenser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/DieselFuelDispenseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/DieselFuelDispenseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/OctaneFuelDispenseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/OctaneFuelDispenseManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/OptionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/OptionMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/cal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/cal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resource/cuscount.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resource/cuscount.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/PetrolDispenser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/PetrolDispenser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +68,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Application.cal">
+  <component name="RunManager" selected="Application.GasStation">
     <configuration name="GasStation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FuelManagementSystem.GasStation" />
       <module name="OODCoursework" />
@@ -108,8 +110,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.cal" />
         <item itemvalue="Application.GasStation" />
+        <item itemvalue="Application.cal" />
         <item itemvalue="Application.OptionMenu" />
       </list>
     </recent_temporary>
@@ -201,6 +203,15 @@
       <updated>1672551931916</updated>
     </task>
     <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00011" summary="dispenser db input">
+      <created>1672607575056</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1672607575056</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +244,9 @@
     <MESSAGE value="new database" />
     <MESSAGE value=" database alt" />
     <MESSAGE value=" database success" />
-    <option name="LAST_COMMIT_MESSAGE" value=" database success" />
+    <MESSAGE value=" database success2" />
+    <MESSAGE value="dispenser db input" />
+    <option name="LAST_COMMIT_MESSAGE" value="dispenser db input" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

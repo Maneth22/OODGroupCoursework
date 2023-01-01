@@ -15,6 +15,7 @@ public class Queue {
 
     CommonWaitingQueue commonWait= new CommonWaitingQueue();
     DBConnector db= new DBConnector();
+    //d
 	Ticket ticket=new Ticket();
 
     Queue(){

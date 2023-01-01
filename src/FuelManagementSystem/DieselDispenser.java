@@ -42,8 +42,7 @@ public class DieselDispenser {
 	public void getCustomerCount() {
 	}
 
-	public DieselDispenser(int DispenserNumber,String VehicleType) {
-		this.DispenserNumber= DispenserNumber;
+	public DieselDispenser(String VehicleType) {
 		this.VehicleType= VehicleType;
 	}
 
@@ -62,6 +61,7 @@ public class DieselDispenser {
 		System.out.println("Filling "+fuelAmount+"L");
 		System.out.println("Remaining Fuel in Diesel Repository"+ DieselRepo.getFuelAmount());
 		setSales(fuelAmount);
+
 	}
 
 }

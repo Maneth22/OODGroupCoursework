@@ -8,15 +8,17 @@ public class DieselFuelDispenseManager implements FuelDispenseManager{
 	private final int Capacity=25000;
 	private ArrayList<DieselDispenser> listOfDispensers;
 
-	public boolean createDispenser(int DispenserNumber, String DispenserVehicleType){
-		return this.listOfDispensers.add(new DieselDispenser(DispenserNumber,DispenserVehicleType));
+	public boolean createDispenser(String DispenserVehicleType){
+		return this.listOfDispensers.add(new DieselDispenser(DispenserVehicleType));
 	}
 
 	public void setFuelAmount(double DfuelAmount) {
+
 		if (this.fuelAmount<500){
 			System.out.println("Diesel Fuel limit less than 500L,\n Please Restock fuel to continue");
 		}else {
 			this.fuelAmount-=DfuelAmount;
+
 		}
 
 	}
@@ -31,8 +33,10 @@ public class DieselFuelDispenseManager implements FuelDispenseManager{
 	public void restockFuel(double fuelAmount) {
 		double NewFuelAmount;
 		NewFuelAmount= getFuelAmount()+fuelAmount;
-		if (NewFuelAmount <= Capacity){
+
+		if (NewFuelAmount < Capacity){
 			this.fuelAmount = NewFuelAmount;
+			// overwritewrite fuel amount text file
 		}else {
 			System.out.println("Capacity Outbound!");
 		}
@@ -40,6 +44,7 @@ public class DieselFuelDispenseManager implements FuelDispenseManager{
 	}
 
 	public double getFuelAmount() {
+		//read current fuel amount text file
 		return this.fuelAmount;
 	}
 

@@ -1,7 +1,5 @@
 package FuelManagementSystem;
 
-import java.io.IOException;
-
 public class PetrolDispenser {
 	private String VehicleType;
 	private static double TotalDispenserSales;
@@ -62,7 +60,7 @@ public class PetrolDispenser {
 	public void setDispenseAvailable(boolean DispenseAvailable) {
 		this.DispenseAvailable=DispenseAvailable;
 	}
-	public void fillVehicle(double fuelAmount) throws IOException {
+	public void fillVehicle(double fuelAmount){
 		setSales(0);
 		this.fuelAmount=fuelAmount;
 		OctaneRepo.setFuelAmount(fuelAmount);

@@ -1,6 +1,5 @@
 package FuelManagementSystem;
 
-import java.io.*;
 import java.util.ArrayList;
 
 public class OctaneFuelDispenseManager implements FuelDispenseManager{
@@ -9,10 +8,7 @@ public class OctaneFuelDispenseManager implements FuelDispenseManager{
 	private final int Capacity=25000;
 	private ArrayList<PetrolDispenser> listOfDispensers = new ArrayList<>();
 
-	public double getFuelAmount() throws IOException {
-		BufferedReader reader= new BufferedReader(new FileReader("src/Resource/fuelAmount.txt"));
-		String amount=reader.readLine();
-		this.fuelAmount=Integer.parseInt(amount);
+	public double getFuelAmount() {
 
 		return fuelAmount;
 	}
@@ -38,14 +34,11 @@ public class OctaneFuelDispenseManager implements FuelDispenseManager{
 	}
 
 	@Override
-	public void restockFuel(double fuelAmount) throws IOException {
+	public void restockFuel(double fuelAmount) {
 		double NewFuelAmount;
 		NewFuelAmount= getFuelAmount()+fuelAmount;
 		if (NewFuelAmount <= Capacity){
 			this.fuelAmount = NewFuelAmount;
-			BufferedWriter writer= new BufferedWriter(new FileWriter("src/Resource/fuelAmount.txt"));
-			writer.write(String.valueOf(NewFuelAmount));
-			writer.close();
 		}else {
 			System.out.println("Capacity Outbound!");
 		}

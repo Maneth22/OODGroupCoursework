@@ -115,6 +115,73 @@ public class DBConnector {
                     + "VALUES ('" + fType + "','" + dispenser_name + "'," + null + ")");
 
         }
+
+
+
+    }
+    public int getQueueCountFromDB(String VehicleType,String fuelType) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+        Statement stmt = con.createStatement();
+        int count=0;
+
+        if (fuelType.equals("petrol")){
+            if (VehicleType.equals("car") || VehicleType.equals("van")){
+                ResultSet rs=stmt.executeQuery("SELECT COUNT(*) FROM pqueue_carandvan; ");
+                rs.next();
+                count=rs.getInt(1);
+
+
+            } else if (VehicleType.equals("motorbike")) {
+                ResultSet rs=stmt.executeQuery("SELECT COUNT(*) FROM pqueue_bike; ");
+                rs.next();
+                count=rs.getInt(1);
+
+
+            } else if (VehicleType.equals("threewheel")) {
+                ResultSet rs=stmt.executeQuery("SELECT COUNT(*) FROM pqueue_threewheel; ");
+                rs.next();
+                count=rs.getInt(1);
+
+
+            }else {
+                ResultSet rs=stmt.executeQuery("SELECT COUNT(*) FROM pqueue_other; ");
+                rs.next();
+                count=rs.getInt(1);
+
+
+            }
+        } else if (fuelType.equals("diesel")) {
+            if (VehicleType.equals("car") || VehicleType.equals("van")){
+                ResultSet rs=stmt.executeQuery("SELECT COUNT(*) FROM dqueue_carandvan; ");
+                rs.next();
+                count=rs.getInt(1);
+
+
+            } else if (VehicleType.equals("motorbike")) {
+                ResultSet rs=stmt.executeQuery("SELECT COUNT(*) FROM dqueue_public; ");
+                rs.next();
+                count=rs.getInt(1);
+
+
+            }else {
+                ResultSet rs=stmt.executeQuery("SELECT COUNT(*) FROM dqueue_other; ");
+                rs.next();
+                count=rs.getInt(1);
+
+            }
+
+        }
+
+        return count;
+    }
+
+    public void enterTicket(String Name,int ticket_No) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+        Statement stmt = con.createStatement();
+        ResultSet rs= stmt.executeQuery("UPDATE `customer`"+ "SET ticket_No='"+ticket_No+"'"+"WHERE customer_Name='"+Name+"'");
+
     }
 
 }

@@ -66,6 +66,8 @@ public class OptionMenu {
                     case 1 -> {
                         System.out.println("\n------ CUSTOMER DETAILS ENTRY ------\n");
 
+
+
                         System.out.print("ENTER FUEL TYPE: ");
                         String fuelType = sc.next();
 
@@ -78,9 +80,10 @@ public class OptionMenu {
                         System.out.print("ENTER CUSTOMER NAME: ");
                         String customerName = sc.next();
 
-
+                        DBConnector dbConnector=new DBConnector();
                         Customer customer = new Customer(fuelType, fuelInput, false, vehicleType, customerName, null);
 
+                        dbConnector.AddCusToDB(customer);
 
                         manageCustomers();
 

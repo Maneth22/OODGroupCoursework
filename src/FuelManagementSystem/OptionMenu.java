@@ -1,8 +1,10 @@
 package FuelManagementSystem;
 import java.util.Scanner;
 
+import static java.lang.System.*;
+
 public class OptionMenu {
-    Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(in);
 
 
 
@@ -10,35 +12,36 @@ public class OptionMenu {
         boolean userIntReceived = false;
         int Choice;
 
-        System.out.format("%n%n****************************************************************************%n");
-        System.out.format("                             MAIN MENU                                %n");
-        System.out.format("+***************************************************************************%n");
-        System.out.format("%n%n       1. MANAGE CUSTOMERS                                              %n");
-        System.out.format("       2. PAYMENTS                                               %n");
-        System.out.format("       3. MANAGE QUEUES                                     %n");
-        System.out.format("       4. MANAGE DISPENSERS                            %n");
-        System.out.format("       5. MANAGE DATABASE                                                   %n");
-        System.out.format("       6. VIEW STATS                                                      %n");
-        System.out.format("       0. EXIT                                                            %n");
+        out.format("%n%n****************************************************************************%n");
+        out.format("                             MAIN MENU                                %n");
+        out.format("+***************************************************************************%n");
+        out.format("%n%n       1. MANAGE CUSTOMERS                                              %n");
+        out.format("       2. PAYMENTS                                               %n");
+        out.format("       3. MANAGE QUEUES                                     %n");
+        out.format("       4. MANAGE DISPENSERS                            %n");
+        out.format("       5. MANAGE DATABASE                                                   %n");
+        out.format("       6. VIEW STATS                                                      %n");
+        out.format("       0. EXIT                                                            %n");
 
-        System.out.println();
+        out.println();
         while (!userIntReceived) {
             try {
-                System.out.print("PLEASE SELECT YOUR OPTION : ");
+                out.print("PLEASE SELECT YOUR OPTION : ");
                 Choice = Integer.parseInt(sc.nextLine());
                 userIntReceived = true;
                 switch (Choice) {
                     case 1 -> manageCustomers();
-                    case 2 -> System.out.println("option2");
-                    case 3 -> System.out.println("option3");
-                    case 4 -> System.out.println("option4");
-                    case 5 -> System.out.println("option5");
-                    case 6 -> System.out.println("option 6");
-                    case 0 -> System.exit(0);
+                    case 2 -> out.println("option2");
+                    case 3 -> manageQueues();
+                    case 4 -> manageDispensers();
+                    case 5 -> out.println("option5");
+                    case 6 -> out.println("option 6");
+                    case 0 -> exit(0);
 
                     default -> MainMenuDisplay();
                 }
-            } catch (Exception e) {System.out.println("Error");}
+            } catch (Exception e) {
+                out.println("Error");}
         }
 
     }
@@ -48,36 +51,34 @@ public class OptionMenu {
         boolean userIntReceived = false;
         int Choice;
 
-        System.out.format("%n%n****************************************************************************%n");
-        System.out.format("                             MANAGE CUSTOMER MENU                                %n");
-        System.out.format("+***************************************************************************%n");
-        System.out.format("%n%n       1. ENTER CUSTOMER DETAILS                                           %n");
-        System.out.format("       2. VIEW CUSTOMER DETAILS                                               %n");
-        System.out.format("       0. EXIT TO MAIN MENU                                                            %n");
+        out.format("%n%n****************************************************************************%n");
+        out.format("                             MANAGE CUSTOMER MENU                                %n");
+        out.format("+***************************************************************************%n");
+        out.format("%n%n       1. ENTER CUSTOMER DETAILS                                           %n");
+        out.format("       2. VIEW CUSTOMER DETAILS                                               %n");
+        out.format("       0. EXIT TO MAIN MENU                                                            %n");
 
 
-        System.out.println();
+        out.println();
         while (!userIntReceived) {
             try {
-                System.out.print("PLEASE SELECT YOUR OPTION : ");
+                out.print("PLEASE SELECT YOUR OPTION : ");
                 Choice = Integer.parseInt(sc.nextLine());
                 userIntReceived = true;
                 switch (Choice) {
                     case 1 -> {
-                        System.out.println("\n------ CUSTOMER DETAILS ENTRY ------\n");
+                        out.println("\n------ CUSTOMER DETAILS ENTRY ------\n");
 
+                        out.println("ENTER FUEL TYPE [Petrol / Diesel] ");
+                        String fuelType = sc.next().toLowerCase();
 
-
-                        System.out.print("ENTER FUEL TYPE: ");
-                        String fuelType = sc.next();
-
-                        System.out.print("ENTER FUEL AMOUNT: ");
+                        out.print("ENTER FUEL AMOUNT: ");
                         double fuelInput = sc.nextDouble();
 
-                        System.out.print("ENTER VEHICLE TYPE: ");
+                        out.print("ENTER VEHICLE TYPE: ");
                         String vehicleType = sc.next();
 
-                        System.out.print("ENTER CUSTOMER NAME: ");
+                        out.print("ENTER CUSTOMER NAME: ");
                         String customerName = sc.next();
 
                         DBConnector dbConnector=new DBConnector();
@@ -85,22 +86,85 @@ public class OptionMenu {
 
                         dbConnector.AddCusToDB(customer);
 
-
                         manageCustomers();
 
-
                     }
-                    case 2 -> {
-                        System.out.println("--------CUSTOMER DETAILS----------\n\n\n");
-
-                    }
+                    case 2 -> out.println("--------CUSTOMER DETAILS----------\n\n\n");
                     case 0 -> MainMenuDisplay();
-
                     default -> manageCustomers();
                 }
-            } catch (Exception e) {System.out.println("Error");}
+            } catch (Exception e) {
+                out.println("Error");}
         }
 
+        }
+    public void manageQueues() {
+        boolean userIntReceived = false;
+        int Choice;
+
+        out.format("%n%n****************************************************************************%n");
+        out.format("                             MANAGE QUEUE MENU                                %n");
+        out.format("+***************************************************************************%n");
+        out.format("%n%n       1. ADD                                            %n");
+        out.format("       2. REMOVE                                                %n");
+        out.format("       3. VIEW QUEUES                                                %n");
+        out.format("       4. VIEW COMMON QUEUE                                                %n");
+        out.format("       0. EXIT TO MAIN MENU                                                            %n");
+
+
+        out.println();
+        while (!userIntReceived) {
+            try {
+                out.print("PLEASE SELECT YOUR OPTION : ");
+                Choice = Integer.parseInt(sc.nextLine());
+                userIntReceived = true;
+                switch (Choice) {
+                    case 1 -> out.println("\nADD VEHICLE TO QUEUE\n");
+                    case 2 -> out.println("REMOVE VEHICLE FROM QUEUE");
+                    case 3 -> out.println("DISPLAY VEHICLES IN QUEUE");
+                    case 4 -> out.println("DISPLAY VEHICLES IN COMMON QUEUE");
+                    case 0 -> MainMenuDisplay();
+                    default -> manageQueues();
+                }
+            } catch (NumberFormatException e) {
+                out.println("Error");
+            }
         }
 
     }
+    public void manageDispensers() {
+        boolean userIntReceived = false;
+        int Choice;
+
+        out.format("%n%n****************************************************************************%n");
+        out.format("                             MANAGE DISPENSER MENU                                %n");
+        out.format("+***************************************************************************%n");
+        out.format("%n%n       1. ADD NEW DISPENSER                                           %n");
+        out.format("       2. CHECK FUEL LEVEL                                                %n");
+        out.format("       3. RESTOCK FUEL                                                 %n");
+        out.format("       0. EXIT TO MAIN MENU                                                            %n");
+
+
+        out.println();
+        while (!userIntReceived) {
+            try {
+                out.print("PLEASE SELECT YOUR OPTION : ");
+                Choice = Integer.parseInt(sc.nextLine());
+                userIntReceived = true;
+                switch (Choice) {
+                    case 1 -> out.println("\nADD NEW DISPENSER\n");
+                    case 2 -> out.println("DISPLAY FUEL LEVEL IN REPOSITORY");
+                    case 3 -> out.println("RESTOCK FUEL");
+                    case 0 -> MainMenuDisplay();
+                    default -> manageDispensers();
+                }
+            } catch (NumberFormatException e) {
+                out.println("Error");
+            }
+        }
+
+    }
+
+
+
+}

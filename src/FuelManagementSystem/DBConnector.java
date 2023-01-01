@@ -176,4 +176,12 @@ public class DBConnector {
         return count;
     }
 
+    public void enterTicket(String Name,int ticket_No) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+        Statement stmt = con.createStatement();
+        ResultSet rs= stmt.executeQuery("UPDATE `customer`"+ "SET ticket_No='"+ticket_No+"'"+"WHERE customer_Name='"+Name+"'");
+
+    }
+
 }

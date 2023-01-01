@@ -45,6 +45,7 @@ public class Queue {
         String cus_fuel= Element.getFuelType();
         String cus_vehicle= Element.getVehicleType();
         int cus_count=db.getQueueCountFromDB(cus_vehicle,cus_fuel);
+        this.rear=cus_count;
 
             if (capacity ==rear){
                 System.out.println("Line is full!");
@@ -55,6 +56,7 @@ public class Queue {
                 if (commonWait.chcklist()){
 
                     Element.setTicketNo("T-"+String.valueOf(ticket.getTicketNo()));
+                    db.enterTicket(Element.getCustomerName(),Integer.parseInt(Element.getTicketNo()));
                     customers[rear] = Element;
                     rear++;
                     System.out.println(customers[rear-1].getCustomerName()+Element.getTicketNo());

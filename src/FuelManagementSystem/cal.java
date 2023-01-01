@@ -8,6 +8,8 @@ public class cal {
         DBConnector db = new DBConnector();
         Customer customer;
         //System.out.println(db.getQueueCountFromDB());
+        int cus_count=db.getQueueCountFromDB("car","petrol");
+        System.out.println(cus_count);
 
     }
 }

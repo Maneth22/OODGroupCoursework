@@ -20,9 +20,10 @@ public class DBConnector {
         String vehicle=customer.getVehicleType();
 
 
-        System.out.println(Name_);
-        stmt.execute("INSERT INTO customer (customer_No, customer_Name,fuel_Type, vehicle_Type, fuel_Amount) "
-                +"VALUES ('"+cus_num+", "+Name_+", "+fueltype+", "+vehicle+","+fuelAmount+"')");
+
+        stmt.executeUpdate("INSERT INTO customer"+"(customer_No, customer_Name,vehicle_Type,fuel_Type,fuel_Amount,ticket_No,payment) "
+                +"VALUES ("+cus_num+",'"+Name_+"','"+vehicle+"','"+fueltype+"',"+fuelAmount+","+null+","+null+")");
+
 
 
     }

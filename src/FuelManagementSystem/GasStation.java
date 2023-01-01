@@ -1,5 +1,6 @@
 package FuelManagementSystem;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -24,7 +25,7 @@ public class GasStation {
 	}
 
 
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
 
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
@@ -76,8 +77,13 @@ public class GasStation {
 		System.out.println("        ***********************************************************");
 
 		OptionMenu op = new OptionMenu();
-		op.MainMenuDisplay();
+		//DBConnector db= new DBConnector();
 
+
+		//Customer customer1= new Customer("petrol", 9,false,"car","c1",null);
+
+		op.MainMenuDisplay();
+		//db.AddCusToDB(customer1);
 
 
 	}

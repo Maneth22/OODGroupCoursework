@@ -85,6 +85,7 @@ public class OptionMenu {
 
                         dbConnector.AddCusToDB(customer);
 
+
                         manageCustomers();
 
 

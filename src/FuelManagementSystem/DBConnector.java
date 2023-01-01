@@ -63,5 +63,22 @@ public class DBConnector {
         return customer;
 
     }
+    public void AddPetrolDispenserToDB(PetrolDispenser dispenser,String Vtype) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+        Statement stmt = con.createStatement();
+
+        String dispenser_name= Vtype;
+        //if (dispenser_name==)
+
+
+
+
+        //stmt.executeUpdate("INSERT INTO customer"+"(customer_Name,vehicle_Type,fuel_Type,fuel_Amount,ticket_No,payment) "
+               // +"VALUES ('"+Name_+"','"+vehicle+"','"+fueltype+"',"+fuelAmount+","+null+","+null+")");
+
+
+
+    }
 
 }

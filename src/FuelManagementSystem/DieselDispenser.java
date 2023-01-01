@@ -62,6 +62,7 @@ public class DieselDispenser {
 		System.out.println("Filling "+fuelAmount+"L");
 		System.out.println("Remaining Fuel in Diesel Repository"+ DieselRepo.getFuelAmount());
 		setSales(fuelAmount);
+
 	}
 
 }

@@ -1,11 +1,12 @@
 package FuelManagementSystem;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.Scanner;
 
 public class Customer implements Serializable {
 
 	private String customerName;
+	private int customerNo;
 	private String fuelType;
 	private String vehicleType;
 	private double fuelInput;
@@ -80,4 +81,31 @@ public class Customer implements Serializable {
 	public void setFuelType(String fuelType) {
 		this.fuelType = fuelType;
 	}
+
+	public void setCustomerNo() throws IOException {
+		BufferedReader reader= new BufferedReader(new FileReader("src\\Resource\\cuscount.txt"));
+		String cus=reader.readLine();
+		this.customerNo=Integer.parseInt(cus);
+		this.customerNo+=1;
+
+		BufferedWriter writer= new BufferedWriter(new FileWriter("src\\Resource\\cuscount.txt"));
+		writer.write(String.valueOf(customerNo));
+		writer.close();
+		reader.close();
+	}
+
+	public int getCustomerNo() throws IOException {
+		BufferedReader reader= new BufferedReader(new FileReader("src\\Resource\\cuscount.txt"));
+		String cus=reader.readLine();
+		this.customerNo=Integer.parseInt(cus);
+		return customerNo;
+	}
+	public void InitializeCusCount() throws IOException {
+		BufferedWriter writer= new BufferedWriter(new FileWriter("src\\Resource\\cuscount.txt"));
+		writer.write(String.valueOf("0"));
+		writer.close();
+	}
+
+
+
 }

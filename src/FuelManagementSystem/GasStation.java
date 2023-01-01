@@ -1,5 +1,11 @@
 package FuelManagementSystem;
 
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class GasStation {
 
 	private double HighestFuelAmountInVehicle;
@@ -19,8 +25,15 @@ public class GasStation {
 	}
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
 
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+		Statement stmt = con.createStatement();
+
+
+
+		/*
 		Customer customer1= new Customer("petrol", 9,false,"car","fk",null);
 		Customer customer2= new Customer("petrol", 9,false,"car","SANA1",null);
 		Customer customer3= new Customer("petrol", 9,false,"car","SANA2",null);
@@ -34,14 +47,14 @@ public class GasStation {
 		Customer customer11= new Customer("petrol", 9,false,"car","SANA11",null);
 		Customer customer12= new Customer("petrol", 9,false,"car","SANA12",null);
 
-		/*OctaneFuelDispenseManager oD= new OctaneFuelDispenseManager();
+		OctaneFuelDispenseManager oD= new OctaneFuelDispenseManager();
 		PetrolDispenser PD1= new PetrolDispenser(1,"Car");
 
 
 		System.out.println(oD.getFuelAmount());
 
 		PD1.fillVehicle(150);
-		System.out.println(oD.getFuelAmount());*/
+		System.out.println(oD.getFuelAmount());
 		Queue carQ= new Queue();
 		carQ.Enqueue(customer1);
 		carQ.Enqueue(customer2);
@@ -55,8 +68,22 @@ public class GasStation {
 		carQ.Enqueue(customer10);
 		carQ.Enqueue(customer11);
 		carQ.Dequeue();
-		carQ.Enqueue(customer12);
+		carQ.Enqueue(customer12);*/
 
+
+
+		System.out.println("        ***********************************************************");
+		System.out.println("                  WELCOME TO THE FUEL MANAGEMENT SYSTEM          ");
+		System.out.println("        ***********************************************************");
+
+		OptionMenu op = new OptionMenu();
+		//DBConnector db= new DBConnector();
+
+
+		//Customer customer1= new Customer("petrol", 9,false,"car","c1",null);
+
+		op.MainMenuDisplay();
+		//db.AddCusToDB(customer1);
 
 
 	}

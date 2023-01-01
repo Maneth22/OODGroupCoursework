@@ -66,6 +66,8 @@ public class OptionMenu {
                     case 1 -> {
                         System.out.println("\n------ CUSTOMER DETAILS ENTRY ------\n");
 
+
+
                         System.out.print("ENTER FUEL TYPE: ");
                         String fuelType = sc.next();
 
@@ -78,10 +80,14 @@ public class OptionMenu {
                         System.out.print("ENTER CUSTOMER NAME: ");
                         String customerName = sc.next();
 
-
+                        DBConnector dbConnector=new DBConnector();
                         Customer customer = new Customer(fuelType, fuelInput, false, vehicleType, customerName, null);
 
+                        dbConnector.AddCusToDB(customer);
+
+
                         manageCustomers();
+
 
                     }
                     case 2 -> System.out.println("DISPLAY CUSTOMER DETAILS");
@@ -94,19 +100,4 @@ public class OptionMenu {
 
         }
 
-
-        public static void main (String[]args){
-
-
-            System.out.println("        ***********************************************************");
-            System.out.println("                  WELCOME TO THE FUEL MANAGEMENT SYSTEM          ");
-            System.out.println("        ***********************************************************");
-
-            OptionMenu op = new OptionMenu();
-            op.MainMenuDisplay();
-
-
-
-
-        }
     }

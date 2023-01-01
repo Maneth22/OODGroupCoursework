@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6a63166-cf58-4016-88d2-8d254818dfcd" name="Changes" comment="customer manage menu" />
+    <list default="true" id="d6a63166-cf58-4016-88d2-8d254818dfcd" name="Changes" comment="new main">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FuelManagementSystem/DBConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OODCoursework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OODCoursework.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/GasStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/GasStation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/OptionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/OptionMenu.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,22 +42,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sanx2/Downloads/Aggregation/Aggregation&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Sanjula Subawickrama/Downloads/OOP CW ALMOST DONE/CM2601_Group_CW copy 6",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
-  <component name="RunManager" selected="Application.OptionMenu">
+}]]></component>
+  <component name="RunManager" selected="Application.GasStation">
     <configuration name="GasStation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FuelManagementSystem.GasStation" />
       <module name="OODCoursework" />
@@ -77,8 +99,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.OptionMenu" />
         <item itemvalue="Application.GasStation" />
+        <item itemvalue="Application.OptionMenu" />
       </list>
     </recent_temporary>
   </component>
@@ -101,6 +123,8 @@
       <workItem from="1671252543299" duration="6827000" />
       <workItem from="1671290979334" duration="2368000" />
       <workItem from="1672228111852" duration="1225000" />
+      <workItem from="1672266033302" duration="4487000" />
+      <workItem from="1672458104867" duration="4571000" />
     </task>
     <task id="LOCAL-00001" summary="Commiting Cost innitialisation">
       <created>1671253471633</created>
@@ -144,21 +168,7 @@
       <option name="project" value="LOCAL" />
       <updated>1672248092552</updated>
     </task>
-    <task id="LOCAL-00007" summary="user input validation">
-      <created>1672251435205</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1672251435205</updated>
-    </task>
-    <task id="LOCAL-00008" summary="customer manage menu">
-      <created>1672255859072</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1672255859072</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,8 +198,7 @@
     <MESSAGE value=".." />
     <MESSAGE value="edit" />
     <MESSAGE value="user input validation" />
-    <MESSAGE value="customer manage menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="customer manage menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="user input validation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

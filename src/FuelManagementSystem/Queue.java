@@ -1,6 +1,7 @@
 package FuelManagementSystem;
 
 import java.lang.reflect.Array;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Queue {
@@ -13,6 +14,7 @@ public class Queue {
     private final int capacity=10;
 
     CommonWaitingQueue commonWait= new CommonWaitingQueue();
+    DBConnector db= new DBConnector();
 	Ticket ticket=new Ticket();
 
     Queue(){
@@ -37,8 +39,12 @@ public class Queue {
 
     }
 
-	public void Enqueue(Customer Element) {
+	public void Enqueue(Customer Element) throws SQLException, ClassNotFoundException {
         //checkWaitingQueue();
+        String cus_fuel= Element.getFuelType();
+        String cus_vehicle= Element.getVehicleType();
+        int cus_count=db.getQueueCountFromDB(cus_vehicle,cus_fuel);
+
             if (capacity ==rear){
                 System.out.println("Line is full!");
                 commonWait.wait(Element );

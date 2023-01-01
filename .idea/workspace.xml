@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d6a63166-cf58-4016-88d2-8d254818dfcd" name="Changes" comment=" database success">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/DBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/DBConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/OptionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/OptionMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/cal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/cal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resource/cuscount.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resource/cuscount.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +132,7 @@
       <workItem from="1672266033302" duration="4487000" />
       <workItem from="1672458104867" duration="5907000" />
       <workItem from="1672530637939" duration="14188000" />
+      <workItem from="1672605811631" duration="498000" />
     </task>
     <task id="LOCAL-00001" summary="Commiting Cost innitialisation">
       <created>1671253471633</created>

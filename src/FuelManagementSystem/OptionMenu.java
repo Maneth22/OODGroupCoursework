@@ -4,6 +4,7 @@ import java.util.Scanner;
 import static java.lang.System.*;
 
 public class OptionMenu {
+    DBConnector dbConnector=new DBConnector();
     Scanner sc = new Scanner(in);
 
 
@@ -81,7 +82,6 @@ public class OptionMenu {
                         out.print("ENTER CUSTOMER NAME: ");
                         String customerName = sc.next();
 
-                        DBConnector dbConnector=new DBConnector();
                         Customer customer = new Customer(fuelType, fuelInput, false, vehicleType, customerName, null);
 
                         dbConnector.AddCusToDB(customer);
@@ -89,7 +89,11 @@ public class OptionMenu {
                         manageCustomers();
 
                     }
-                    case 2 -> out.println("--------CUSTOMER DETAILS----------\n\n\n");
+                    case 2 -> {
+                        out.println("--------CUSTOMER DETAILS----------\n\n\n");
+
+                        dbConnector.ViewCusFromDB();
+                    }
                     case 0 -> MainMenuDisplay();
                     default -> manageCustomers();
                 }

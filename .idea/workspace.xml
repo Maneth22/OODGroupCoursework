@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6a63166-cf58-4016-88d2-8d254818dfcd" name="Changes" comment="new main">
+    <list default="true" id="d6a63166-cf58-4016-88d2-8d254818dfcd" name="Changes" comment=" database success">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/DBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/DBConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/OptionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/OptionMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FuelManagementSystem/cal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuelManagementSystem/cal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Resource/cuscount.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resource/cuscount.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,18 +27,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/FuelManagementSystem/CommonWaitingQueue.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/FuelManagementSystem/DBConnector.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/FuelManagementSystem/DieselDispenser.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/FuelManagementSystem/GasStation.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/FuelManagementSystem/OctaneFuelDispenseManager.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/FuelManagementSystem/OptionMenu.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/FuelManagementSystem/Payment.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/FuelManagementSystem/PetrolDispenser.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/FuelManagementSystem/Queue.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/FuelManagementSystem/cal.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -76,7 +66,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Application.GasStation">
+  <component name="RunManager" selected="Application.cal">
     <configuration name="GasStation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FuelManagementSystem.GasStation" />
       <module name="OODCoursework" />
@@ -118,8 +108,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GasStation" />
         <item itemvalue="Application.cal" />
+        <item itemvalue="Application.GasStation" />
         <item itemvalue="Application.OptionMenu" />
       </list>
     </recent_temporary>
@@ -257,9 +247,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/OODCoursework_iml$OptionMenu.ic" NAME="OptionMenu Coverage Results" MODIFIED="1672245205866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>FuelManagementSystem.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/OODGroupCoursework$GasStation.ic" NAME="GasStation Coverage Results" MODIFIED="1672549684430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>FuelManagementSystem.*</FILTER>
     </SUITE>
   </component>

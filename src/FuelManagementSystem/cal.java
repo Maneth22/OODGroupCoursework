@@ -1,12 +1,13 @@
 package FuelManagementSystem;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class cal {
-    public static void main(String[] args) throws IOException {
-        Customer c= new Customer("awd",2,false,"awd","wad",null);
-        System.out.println(c.getCustomerNo());
-        c.setCustomerNo();
-        System.out.println(c.getCustomerNo());
+    public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
+        DBConnector db = new DBConnector();
+        Customer customer;
+        customer=db.getCustomerFromDB();
+        System.out.println(customer.getCustomerName());
     }
 }

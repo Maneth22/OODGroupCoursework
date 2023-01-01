@@ -42,7 +42,7 @@ public class DBConnector {
 
 
     }
-    public Customer getCustomerFromDB() throws SQLException, ClassNotFoundException {
+    public Customer getLastCustomerFromDB() throws SQLException, ClassNotFoundException {
         String name = null;
         String vehicle = null;
         String fueltype = null;

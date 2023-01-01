@@ -124,7 +124,10 @@ public class OptionMenu {
                 Choice = Integer.parseInt(sc.nextLine());
                 userIntReceived = true;
                 switch (Choice) {
-                    case 1 -> out.println("\nADD VEHICLE TO QUEUE\n");
+                    case 1 ->{
+                        out.println("\nADD VEHICLE TO QUEUE\n");
+                        Customer customer;
+                    }
                     case 2 -> out.println("REMOVE VEHICLE FROM QUEUE");
                     case 3 -> out.println("DISPLAY VEHICLES IN QUEUE");
                     case 4 -> out.println("DISPLAY VEHICLES IN COMMON QUEUE");
@@ -173,6 +176,8 @@ public class OptionMenu {
                             if (Type.equals("car") || Type.equals("van")){
                                 PetrolDispenser PD= new PetrolDispenser(Type);
                                 dbConnector.AddPetrolDispenserToDB(PD,Type);
+
+
 
                             } else if (Type.equals("motorbike")) {
                                 PetrolDispenser PD= new PetrolDispenser(Type);

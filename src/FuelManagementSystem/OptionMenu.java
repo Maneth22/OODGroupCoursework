@@ -1,6 +1,6 @@
 package FuelManagementSystem;
 import java.io.IOException;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 import static java.lang.System.*;
@@ -11,7 +11,7 @@ public class OptionMenu {
 
 
 
-    public void MainMenuDisplay()  {
+    public void MainMenuDisplay() throws SQLException, ClassNotFoundException {
         boolean userIntReceived = false;
         int Choice;
 
@@ -35,7 +35,28 @@ public class OptionMenu {
                     case 2 -> manageQueues();
                     case 3 -> manageDispensers();
                     case 4 -> {
-                        out.println("*********|| Stats ||**********");
+                        out.println("\n*********|| Stats ||**********\n");
+                        double Total_Petrol_sales=0;
+                        double Total_Diesel_sales=0;
+
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+                        Statement stmt = con.createStatement();
+
+                        ResultSet rs=stmt.executeQuery("SELECT SUM(payment) FROM `customer` WHERE fuel_Type=\"petrol\" ");
+                        while (rs.next()){
+                            Total_Petrol_sales=rs.getDouble(1);
+                        }
+                        ResultSet rs2=stmt.executeQuery("SELECT SUM(payment) FROM `customer` WHERE fuel_Type=\"diesel\" ");
+                        while (rs2.next()){
+                            Total_Diesel_sales=rs2.getDouble(1);
+                        }
+
+
+
+                        out.println("Total Petrol Sales = "+Total_Petrol_sales+"\nTotal DieselSales = "+Total_Diesel_sales);
+
+
 
                     }
                     case 0 -> exit(0);
@@ -47,7 +68,8 @@ public class OptionMenu {
         }
 
     }
-    public void viewStats(){
+    public void viewStats()  {
+
 
     }
 

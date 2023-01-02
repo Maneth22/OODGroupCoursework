@@ -1,4 +1,5 @@
 package FuelManagementSystem;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -129,7 +130,6 @@ public class OptionMenu {
         out.format("%n%n       1. ADD                                            %n");
         out.format("       2. REMOVE                                                %n");
         out.format("       3. VIEW QUEUES                                                %n");
-        out.format("       4. VIEW COMMON QUEUE                                                %n");
         out.format("       0. EXIT TO MAIN MENU                                                            %n");
 
 
@@ -334,7 +334,6 @@ public class OptionMenu {
                         }
 
                     }
-                    case 4 -> out.println("DISPLAY VEHICLES IN COMMON QUEUE");
                     case 0 -> MainMenuDisplay();
                     default -> manageQueues();
                 }
@@ -428,8 +427,32 @@ public class OptionMenu {
                         manageDispensers();
 
                     }
-                    case 2 -> out.println("DISPLAY FUEL LEVEL IN REPOSITORY");
-                    case 3 -> out.println("RESTOCK FUEL");
+                    case 2 -> {
+                        out.println("DISPLAY FUEL LEVEL IN REPOSITORY");
+                        OctaneFuelDispenseManager petrolD= new OctaneFuelDispenseManager();
+                        DieselFuelDispenseManager dieselD= new DieselFuelDispenseManager();
+                        out.println("Amount of Petrol Left = "+petrolD.getFuelAmount()+"\n");
+                        out.println("Amount of Diesel Left = "+dieselD.getFuelAmount()+"\n");
+                    }
+                    case 3 -> {
+                        OctaneFuelDispenseManager petrolD= new OctaneFuelDispenseManager();
+                        DieselFuelDispenseManager dieselD= new DieselFuelDispenseManager();
+
+                        out.println("RESTOCK FUEL\n");
+                        out.println("ENTER FUEL TYPE FOR REFIL [Petrol / Diesel] ");
+                        String fuelType = sc.next().toLowerCase();
+                        if(fuelType.equals("petrol")){
+                            out.println("ENTER FUEL Amount: ");
+                            String amount = sc.next().toLowerCase();
+                            petrolD.restockFuel(Integer.parseInt(amount));
+
+                        } else if (fuelType.equals("diesel")) {
+                            out.println("ENTER FUEL Amount: ");
+                            String amount = sc.next().toLowerCase();
+                            dieselD.restockFuel(Integer.parseInt(amount));
+                        }
+                        manageDispensers();
+                    }
                     case 0 -> MainMenuDisplay();
                     default -> manageDispensers();
                 }
@@ -438,6 +461,8 @@ public class OptionMenu {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }

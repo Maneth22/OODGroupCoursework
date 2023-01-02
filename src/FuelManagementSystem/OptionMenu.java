@@ -18,11 +18,9 @@ public class OptionMenu {
         out.format("                             MAIN MENU                                %n");
         out.format("+***************************************************************************%n");
         out.format("%n%n       1. MANAGE CUSTOMERS                                              %n");
-        out.format("       2. PAYMENTS                                               %n");
-        out.format("       3. MANAGE QUEUES                                     %n");
-        out.format("       4. MANAGE DISPENSERS                            %n");
-        out.format("       5. MANAGE DATABASE                                                   %n");
-        out.format("       6. VIEW STATS                                                      %n");
+        out.format("       2. MANAGE QUEUES                                     %n");
+        out.format("       3. MANAGE DISPENSERS                            %n");
+        out.format("       4. VIEW STATS                                                      %n");
         out.format("       0. EXIT                                                            %n");
 
         out.println();
@@ -33,11 +31,12 @@ public class OptionMenu {
                 userIntReceived = true;
                 switch (Choice) {
                     case 1 -> manageCustomers();
-                    case 2 -> out.println("option2");
-                    case 3 -> manageQueues();
-                    case 4 -> manageDispensers();
-                    case 5 -> out.println("option5");
-                    case 6 -> out.println("option 6");
+                    case 2 -> manageQueues();
+                    case 3 -> manageDispensers();
+                    case 4 -> {
+                        out.println("*********|| Stats ||**********");
+
+                    }
                     case 0 -> exit(0);
 
                     default -> MainMenuDisplay();
@@ -45,6 +44,9 @@ public class OptionMenu {
             } catch (Exception e) {
                 out.println("Error");}
         }
+
+    }
+    public void viewStats(){
 
     }
 

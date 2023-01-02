@@ -1,5 +1,6 @@
 package FuelManagementSystem;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.sql.*;
 import java.util.ArrayList;
@@ -89,12 +90,13 @@ public class Queue {
 	}
 
 
-	public void Dequeue(String queueType) throws SQLException, ClassNotFoundException {
+	public void Dequeue(String queueType) throws SQLException, ClassNotFoundException, IOException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
         Statement stmt = con.createStatement();
         Payment payment= new Payment();
         double cost=0;
+
 
         ResultSet rs = stmt.executeQuery("SELECT * FROM `"+queueType+"` ");
 
@@ -123,15 +125,30 @@ public class Queue {
             Customer cus=new Customer(fuelType,fuel_Input,true,cus_Vehicle,cus_name,ticketNo);
             Element=cus;
 
+
             if (capacity ==rear){
                 System.out.println("Line is full!");
                 return;
-            }
-            else{
+            } else if (Element.getFuelType().equals("petrol")) {
+                PetrolDispenser petrolDispenser= new PetrolDispenser(Element.getVehicleType());
+                petrolDispenser.fillVehicle(Element.getFuelInput());
 
                 customers[rear] = Element;
                 rear++;
                 System.out.println(customers[rear-1].getCustomerName());
+
+            }else if (Element.getFuelType().equals("diesel")) {
+                DieselDispenser dieselDispenser= new DieselDispenser(Element.getVehicleType());
+                dieselDispenser.fillVehicle(Element.getFuelInput());
+
+                customers[rear] = Element;
+                rear++;
+                System.out.println(customers[rear-1].getCustomerName());
+
+            }
+            else{
+                System.out.println("Unknown error");
+
 
             }
 
@@ -152,10 +169,12 @@ public class Queue {
                 if (!commonWait.chcklist()){
                     checkWaitingQueue();
                 }
-
                 cost=payment.setCost(customers[front]);
-                System.out.println(customers[front].getFuelInput());
-                stmt.executeUpdate("UPDATE `customer`"+ "SET payment='"+cost+"'"+"WHERE customer_Name='"+customers[front].getCustomerName()+"'");
+                System.out.println(cost);
+                name=customers[front].getCustomerName();
+                stmt.executeUpdate("UPDATE `customer`"+ "SET payment='"+cost+"'"+"WHERE customer_Name='"+name+"'");
+
+
                 return;
 
             }

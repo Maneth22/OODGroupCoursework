@@ -305,6 +305,25 @@ public class DBConnector {
 
             }
 
+
+    }
+    public void Viewtables(String queueType) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+        Statement stmt = con.createStatement();
+        Payment payment= new Payment();
+        double cost=0;
+
+        ResultSet rs = stmt.executeQuery("SELECT * FROM `"+queueType+"` ");
+        String Name=null;
+        double fuelAmount=0;
+
+        while (rs.next()) {
+            Name=rs.getString("customer_Name");
+            fuelAmount=rs.getInt("fuel_Amount");
+
+            out.println("+ "+ Name+"\t"+fuelAmount+"\n");
+        }
     }
 
 

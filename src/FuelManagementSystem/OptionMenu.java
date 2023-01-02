@@ -287,28 +287,45 @@ public class OptionMenu {
                                 switch (Choice2) {
                                     //has to complete...................
                                     case 1 -> {
-                                        out.println("\n------ CUSTOMER DETAILS ENTRY ------\n");
-
-                                        out.println("ENTER FUEL TYPE [Petrol / Diesel] ");
-                                        String fuelType = sc.next().toLowerCase();
-
-                                        out.print("ENTER FUEL AMOUNT: ");
-                                        double fuelInput = sc.nextDouble();
-
-                                        out.print("ENTER VEHICLE TYPE: ");
-                                        String vehicleType = sc.next().toLowerCase();
-
-                                        out.print("ENTER CUSTOMER NAME: ");
-                                        String customerName = sc.next().toLowerCase();
-
-
-
+                                        dbConnector.Viewtables("pqueue_carandvan");
+                                        manageQueues();
                                     }
                                     case 2 -> {
 
+                                        dbConnector.Viewtables("pqueue_bike");
+                                        manageQueues();
+
                                     }
+                                    case 3 ->{
+                                        dbConnector.Viewtables("pqueue_threewheel");
+                                        manageQueues();
+
+                                    }
+                                    case 4 ->{
+                                        dbConnector.Viewtables("pqueue_other");
+                                        manageQueues();
+
+                                    }
+                                    case 5 ->{
+
+                                        dbConnector.Viewtables("dqueue_carandvan");
+                                        manageQueues();
+
+                                    }
+                                    case 6 ->{
+                                        dbConnector.Viewtables("dqueue_public");
+                                        manageQueues();
+
+                                    }
+                                    case 7 ->{
+                                        dbConnector.Viewtables("dqueue_other");
+                                        manageQueues();
+
+
+                                    }
+
                                     case 0 -> MainMenuDisplay();
-                                    default -> manageCustomers();
+                                    default -> manageQueues();
                                 }
                             } catch (Exception e) {
                                 out.println("Error");}

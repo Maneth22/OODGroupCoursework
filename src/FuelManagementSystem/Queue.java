@@ -23,11 +23,28 @@ public class Queue {
         rear = 0;
         customers = new Customer[capacity];
     }
-    public void checkWaitingQueue(){
-        for (int i=0;i<=commonWait.size();i++){
-            if (!commonWait.chcklist() && !isQueueFull() && capacity!=rear){
-                TempCustomer=commonWait.parsing();
-                commonWait.remove();
+    public void checkWaitingQueue() throws SQLException, ClassNotFoundException {
+        ArrayList<Customer> com_List= new ArrayList<Customer>();
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+        Statement stmt = con.createStatement();
+        ResultSet rs=stmt.executeQuery("SELECT * FROM `common_queue` ");
+
+        String Name_= null;
+        String fueltype= null;
+        String vehicle=null;
+
+        while (rs.next()){
+            Name_=rs.getString("customer_Name");
+            vehicle=rs.getString("vehicle_Type");
+            fueltype=rs.getString("fuelType");
+            Customer cus= new Customer(fueltype,0,false,vehicle,Name_,null);
+            com_List.add(cus);
+        }
+        for (int i=0;i<=com_List.size();i++){
+            if (!com_List.isEmpty() && !isQueueFull() && capacity!=rear){
+                TempCustomer=com_List.get(0);
+                com_List.remove(0);
                 TempCustomer.setTicketNo(String.valueOf(ticket.getTicketNo()));
                 customers[rear] = TempCustomer;
                 rear++;
@@ -70,41 +87,14 @@ public class Queue {
 
         return;
 	}
-    public void enqueueFromDB(String queueType) throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM `'"+queueType+"'` ");
 
-        Customer Element = null;
-        while (rs.next()) {
-
-            String name = rs.getString("customer_Name");
-            String Type = rs.getString("fuel_Amount");
-
-            Element.setCustomerName(name);
-
-            if (capacity ==rear){
-                System.out.println("Line is full!");
-                return;
-            }
-            else{
-
-                customers[rear] = Element;
-                rear++;
-                System.out.println(customers[rear-1].getCustomerName());
-
-            }
-
-        }
-
-
-    }
 
 	public void Dequeue(String queueType) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
         Statement stmt = con.createStatement();
+        Payment payment= new Payment();
+        double cost=0;
 
         ResultSet rs = stmt.executeQuery("SELECT * FROM `"+queueType+"` ");
 
@@ -152,6 +142,7 @@ public class Queue {
                 for (int i = front; i < rear-1 ; i++) {
                     customers[i] = customers[i + 1];
                 }
+                //Remove from queue
                 if (rear-1 < capacity) {
                     //customers[rear] = null;
                     rear--;
@@ -161,13 +152,20 @@ public class Queue {
                 if (!commonWait.chcklist()){
                     checkWaitingQueue();
                 }
+
+                cost=payment.setCost(customers[front]);
+                System.out.println(customers[front].getFuelInput());
+                stmt.executeUpdate("UPDATE `customer`"+ "SET payment='"+cost+"'"+"WHERE customer_Name='"+customers[front].getCustomerName()+"'");
                 return;
 
             }
 
+
+
+
         }
 
-		//Remove from queue
+
 
 
 

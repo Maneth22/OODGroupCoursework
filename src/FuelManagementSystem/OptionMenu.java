@@ -103,6 +103,20 @@ public class OptionMenu {
         }
 
         }
+        public void QueueSelect() throws SQLException, ClassNotFoundException {
+            boolean userIntReceived = false;
+            int Choice;
+
+
+            out.format("%n%n****************************************************************************%n");
+            out.format("                             Queue List                                %n");
+            out.format("+***************************************************************************%n");
+            dbConnector.ViewDispensers();
+
+
+            out.println();
+
+        }
     public void manageQueues() {
         boolean userIntReceived = false;
         int Choice;
@@ -120,6 +134,8 @@ public class OptionMenu {
         out.println();
         while (!userIntReceived) {
             try {
+                boolean user2IntReceived = false;
+                int Choice2;
                 out.print("PLEASE SELECT YOUR OPTION : ");
                 Choice = Integer.parseInt(sc.nextLine());
                 userIntReceived = true;
@@ -127,15 +143,188 @@ public class OptionMenu {
                     case 1 ->{
                         out.println("\nADD VEHICLE TO QUEUE\n");
                         Customer customer;
+                        customer=dbConnector.getLastCustomerFromDB();
+                        String Type= customer.getVehicleType();
+                        if (customer.getFuelType().equals("petrol")){
+
+
+                            if (Type.equals("car") || Type.equals("van")){
+                                Queue queue= new Queue();
+                                queue.Enqueue(customer);
+
+
+
+                            } else if (Type.equals("motorbike")) {
+                                Queue queue= new Queue();
+                                queue.Enqueue(customer);
+
+                            } else if (Type.equals("threewheel")) {
+                                Queue queue= new Queue();
+                                queue.Enqueue(customer);
+
+                            }else {
+                                Queue queue= new Queue();
+                                queue.Enqueue(customer);
+
+                            }
+
+
+                        } else if (customer.getFuelType().equals("diesel")) {
+
+                            if (Type.equals("car") || Type.equals("van")){
+                                Queue queue= new Queue();
+                                queue.Enqueue(customer);
+
+                            } else if (Type.equals("publictransport")) {
+                                Queue queue= new Queue();
+                                queue.Enqueue(customer);
+
+                            }else {
+                                Queue queue= new Queue();
+                                queue.Enqueue(customer);
+
+                            }
+                        }
+                        else{
+                            out.println("please Enter Again");
+                            manageDispensers();
+                        }
+                        MainMenuDisplay();
+
+
                     }
-                    case 2 -> out.println("REMOVE VEHICLE FROM QUEUE");
-                    case 3 -> out.println("DISPLAY VEHICLES IN QUEUE");
+                    case 2 -> {
+                        out.println("REMOVE VEHICLE FROM QUEUE\n");
+                        user2IntReceived = false;
+
+                        Queue queue= new Queue();
+                        dbConnector.ViewDispensers();
+
+                        while (!user2IntReceived) {
+                            try {
+                                out.print("PLEASE SELECT YOUR OPTION : ");
+                                Choice2 = Integer.parseInt(sc.nextLine());
+                                user2IntReceived = true;
+                                switch (Choice2) {
+
+                                    case 1 -> {
+                                        if (dbConnector.getQueueCountFromDB("car","petrol")==0){
+                                            out.println("Queue empty");
+                                        }else {
+                                            queue.Dequeue("pqueue_carandvan");
+                                        }
+                                    }
+                                    case 2 -> {
+                                        if (dbConnector.getQueueCountFromDB("motorbike","petrol")==0){
+                                            out.println("Queue empty");
+                                        }else {
+                                            queue.Dequeue("pqueue_bike");
+                                        }
+
+                                    }
+                                    case 3 ->{
+                                        if (dbConnector.getQueueCountFromDB("threewheel","petrol")==0){
+                                            out.println("Queue empty");
+                                        }else {
+                                            queue.Dequeue("pqueue_threewheel");
+                                        }
+
+                                    }
+                                    case 4 ->{
+                                        if (dbConnector.getQueueCountFromDB("other","petrol")==0){
+                                            out.println("Queue empty");
+                                        }else {
+                                            queue.Dequeue("pqueue_other");
+                                        }
+
+                                    }
+                                    case 5 ->{
+                                        if (dbConnector.getQueueCountFromDB("car","diesel")==0){
+                                            out.println("Queue empty");
+                                        }else {
+                                            queue.Dequeue("dqueue_carandvan");
+                                        }
+
+                                    }
+                                    case 6 ->{
+                                        if (dbConnector.getQueueCountFromDB("publictransport","diesel")==0){
+                                            out.println("Queue empty");
+                                        }else {
+                                            queue.Dequeue("dqueue_public");
+                                        }
+
+                                    }
+                                    case 7 ->{
+                                        if (dbConnector.getQueueCountFromDB("other","diesel")==0){
+                                            out.println("Queue empty");
+                                        }else {
+                                            queue.Dequeue("dqueue_other");
+                                        }
+
+                                    }
+
+                                    case 0 -> MainMenuDisplay();
+                                    default -> manageCustomers();
+                                }
+                            } catch (Exception e) {
+                                out.println("Error");}
+                        }
+                        manageQueues();
+
+
+                    }
+                    case 3 -> {
+                        user2IntReceived = false;
+
+                        out.println("DISPLAY VEHICLES IN QUEUE");
+
+                        QueueSelect();
+                        while (!user2IntReceived) {
+                            try {
+                                out.print("PLEASE SELECT YOUR OPTION : ");
+                                Choice2 = Integer.parseInt(sc.nextLine());
+                                userIntReceived = true;
+                                switch (Choice2) {
+                                    //has to complete...................
+                                    case 1 -> {
+                                        out.println("\n------ CUSTOMER DETAILS ENTRY ------\n");
+
+                                        out.println("ENTER FUEL TYPE [Petrol / Diesel] ");
+                                        String fuelType = sc.next().toLowerCase();
+
+                                        out.print("ENTER FUEL AMOUNT: ");
+                                        double fuelInput = sc.nextDouble();
+
+                                        out.print("ENTER VEHICLE TYPE: ");
+                                        String vehicleType = sc.next().toLowerCase();
+
+                                        out.print("ENTER CUSTOMER NAME: ");
+                                        String customerName = sc.next().toLowerCase();
+
+
+
+                                    }
+                                    case 2 -> {
+
+                                    }
+                                    case 0 -> MainMenuDisplay();
+                                    default -> manageCustomers();
+                                }
+                            } catch (Exception e) {
+                                out.println("Error");}
+                        }
+
+                    }
                     case 4 -> out.println("DISPLAY VEHICLES IN COMMON QUEUE");
                     case 0 -> MainMenuDisplay();
                     default -> manageQueues();
                 }
             } catch (NumberFormatException e) {
                 out.println("Error");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
         }
 
@@ -217,6 +406,7 @@ public class OptionMenu {
                             out.println("please Enter Again");
                             manageDispensers();
                         }
+                        manageDispensers();
 
                     }
                     case 2 -> out.println("DISPLAY FUEL LEVEL IN REPOSITORY");

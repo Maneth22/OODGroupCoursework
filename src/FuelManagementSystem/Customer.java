@@ -27,12 +27,8 @@ public class Customer implements Serializable {
 		return this.customerName;
 	}
 
-	public void setCustomerName() {
-		Scanner cusName = new Scanner(System.in);
-		System.out.println("Enter Customer Name :");
+	public void setCustomerName(String customerName) {
 
-		customerName = cusName.nextLine();
-		System.out.println("Customers name is "+customerName);
 
 		this.customerName = customerName;
 	}

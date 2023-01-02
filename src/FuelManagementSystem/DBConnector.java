@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Objects;
 
+import static java.lang.System.out;
+
 public class DBConnector {
     public void AddCusToDB(Customer customer) throws ClassNotFoundException, SQLException, IOException {
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -42,7 +44,23 @@ public class DBConnector {
 
 
     }
-    public Customer getCustomerFromDB() throws SQLException, ClassNotFoundException {
+    public void ViewDispensers() throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+        Statement stmt = con.createStatement();
+        int count=0;
+        ResultSet rs = stmt.executeQuery("SELECT * FROM `dispenser` ");
+        while (rs.next()) {
+            count+=1;
+            String name = rs.getString("dispenser_Name");
+            String Type = rs.getString("dispenser_Type");
+
+
+            System.out.println("["+count+"]"+"\t"+name + "\t" + Type + "\t" +"\n");
+
+        }
+    }
+    public Customer getLastCustomerFromDB() throws SQLException, ClassNotFoundException {
         String name = null;
         String vehicle = null;
         String fueltype = null;
@@ -180,8 +198,133 @@ public class DBConnector {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
         Statement stmt = con.createStatement();
-        ResultSet rs= stmt.executeQuery("UPDATE `customer`"+ "SET ticket_No='"+ticket_No+"'"+"WHERE customer_Name='"+Name+"'");
+        int TicketNo=ticket_No;
+        stmt.executeUpdate("UPDATE `customer`"+ "SET ticket_No='"+TicketNo+"'"+"WHERE customer_Name='"+Name+"'");
 
     }
+    public void addCustomerToQueue(Customer customer) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+        Statement stmt = con.createStatement();
+
+        String Type=customer.getVehicleType();
+        String Name_= customer.getCustomerName();
+        int fuelAmount=(int)customer.getFuelInput();
+        if (customer.getFuelType().equals("petrol")){
+
+
+            if (Type.equals("car") || Type.equals("van")){
+                stmt.executeUpdate("INSERT INTO pqueue_carandvan"+"(customer_Name,fuel_Amount) "
+                        +"VALUES ('"+Name_+"',"+fuelAmount+")");
+
+
+            } else if (Type.equals("motorbike")) {
+                stmt.executeUpdate("INSERT INTO pqueue_bike"+"(customer_Name,fuel_Amount) "
+                        +"VALUES ('"+Name_+"',"+fuelAmount+")");
+
+            } else if (Type.equals("threewheel")) {
+                stmt.executeUpdate("INSERT INTO pqueue_threewheel"+"(customer_Name,fuel_Amount) "
+                        +"VALUES ('"+Name_+"',"+fuelAmount+")");
+
+            }else {
+                stmt.executeUpdate("INSERT INTO pqueue_other"+"(customer_Name,fuel_Amount) "
+                        +"VALUES ('"+Name_+"',"+fuelAmount+")");
+
+            }
+
+
+        } else if (customer.getFuelType().equals("diesel")) {
+
+            if (Type.equals("car") || Type.equals("van")){
+                stmt.executeUpdate("INSERT INTO dqueue_carandvan"+"(customer_Name,fuel_Amount) "
+                        +"VALUES ('"+Name_+"',"+fuelAmount+")");
+
+
+            } else if (Type.equals("publictransport")) {
+                stmt.executeUpdate("INSERT INTO dqueue_public"+"(customer_Name,fuel_Amount) "
+                        +"VALUES ('"+Name_+"',"+fuelAmount+")");
+
+
+            }else {
+                stmt.executeUpdate("INSERT INTO dqueue_other"+"(customer_Name,fuel_Amount) "
+                        +"VALUES ('"+Name_+"',"+fuelAmount+")");
+
+
+            }
+        }
+        else{
+            System.out.println("please Enter Again");
+        }
+        out.println("added to queue");
+    }
+
+
+    public void RemoveVehicleFromQueueDB(Customer customer,String queuType) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+        Statement stmt = con.createStatement();
+
+
+        String cus_Name=customer.getCustomerName();
+
+
+            if (queuType.equals("pqueue_carandvan")){
+                stmt.executeUpdate("DELETE FROM pqueue_carandvan WHERE Customer_Name='"+cus_Name+"'");
+
+
+            } else if (queuType.equals("pqueue_bike")) {
+                stmt.executeUpdate("DELETE FROM pqueue_bike WHERE Customer_Name='"+cus_Name+"'");
+
+
+            } else if (queuType.equals("pqueue_threewheel")) {
+                stmt.executeUpdate("DELETE FROM pqueue_threewheel WHERE Customer_Name='"+cus_Name+"'");
+
+
+            }else if (queuType.equals("pqueue_other")){
+                stmt.executeUpdate("DELETE FROM pqueue_other WHERE Customer_Name='"+cus_Name+"'");
+
+
+            }
+            else if (queuType.equals("dqueue_carandvan")){
+                stmt.executeUpdate("DELETE FROM dqueue_carandvan WHERE Customer_Name='"+cus_Name+"'");
+
+
+
+            } else if (queuType.equals("dqueue_public")) {
+                stmt.executeUpdate("DELETE FROM dqueue_public WHERE Customer_Name='"+cus_Name+"'");
+
+
+
+            }else if (queuType.equals("dqueue_other")){
+                stmt.executeUpdate("DELETE FROM dqueue_other WHERE Customer_Name='"+cus_Name+"'");
+
+
+
+            } else  {
+                out.println("unable to find expected queue");
+
+            }
+
+
+    }
+    public void Viewtables(String queueType) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+        Statement stmt = con.createStatement();
+        Payment payment= new Payment();
+        double cost=0;
+
+        ResultSet rs = stmt.executeQuery("SELECT * FROM `"+queueType+"` ");
+        String Name=null;
+        double fuelAmount=0;
+
+        while (rs.next()) {
+            Name=rs.getString("customer_Name");
+            fuelAmount=rs.getInt("fuel_Amount");
+
+            out.println("+ "+ Name+"\t"+fuelAmount+"\n");
+        }
+    }
+
 
 }

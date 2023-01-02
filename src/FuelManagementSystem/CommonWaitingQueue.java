@@ -1,8 +1,13 @@
 package FuelManagementSystem;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class CommonWaitingQueue {
+
 
 	private ArrayList<Customer> customers=new ArrayList<Customer>();
 
@@ -11,7 +16,23 @@ public class CommonWaitingQueue {
 	}
 
 
-	public void wait(Customer Element) {
+	public void wait(Customer Element) throws SQLException, ClassNotFoundException {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fuelmanager", "user", "123");
+		Statement stmt = con.createStatement();
+
+
+		String Name_= Element.getCustomerName();
+		String fueltype= Element.getFuelType();
+		double fuelAmount=Element.getFuelInput();
+		String vehicle=Element.getVehicleType();
+
+
+
+		stmt.executeUpdate("INSERT INTO common_queue"+"(customer_Name,vehicle_Type,fuel_Type,fuel_Amount,ticket_No,payment) "
+				+"VALUES ('"+Name_+"','"+vehicle+"','"+fueltype+"',"+fuelAmount+","+null+","+null+")");
+
+
 		this.customers.add(Element);
 		System.out.println(Element.getCustomerName()+" added to common  waiting");
 	}

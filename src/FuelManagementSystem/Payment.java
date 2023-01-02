@@ -20,13 +20,15 @@ public class Payment {
 	}
 
 
-	public double setCost(Customer customer, double temp) {
-		if (customer.getFuelType()=="Diesel") {
-			temp = DieselPrice * customer.getFuelInput();
-		} else if (customer.getFuelType()=="Petrol") {
-			temp =OctanePrice * customer.getFuelInput();
+	public double setCost(Customer customer) {
+
+		if (customer.getFuelType().equals("diesel")) {
+			this.Cost = DieselPrice * customer.getFuelInput();
+		} else if (customer.getFuelType().equals("petrol")) {
+			this.Cost =OctanePrice * customer.getFuelInput();
+
 		}
-		return temp;
+		return this.Cost;
 	}
 
 	public void CalculateIncome(double fuelAmount,String fuelType) {
